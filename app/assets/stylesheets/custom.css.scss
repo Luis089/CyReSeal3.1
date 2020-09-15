@@ -1,0 +1,58 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+background-color: #454d55 !important;
+
+}
+
+.navbar-brand {
+font-size: 2rem;
+}
+
+h1 {
+color: rgb(238, 238, 238);
+}
+
+.no-right-padding{
+padding-right: 0 !important;
+}
+
+.no-left-padding{
+padding-left: 0 !important;
+}
+
+.results-block{
+    display: block;
+    color: #454d55;
+}
+
+.loggout-button{
+    margin-right: 10px;
+}
+
+.user-name{
+    margin-top: 3.5%;
+    padding-right: 10px;
+    color: white;
+}
+
+.card-top-10{
+    background-color: #454d55ad;
+    color: white;
+}
+
+.table-list{
+border-radius: 10px;
+}
+
+h1{
+   color: #454d55;
+}
+
+h3{
+    color: #454d55;
+}
+
+h5{
+    color: #454d55;
+}
