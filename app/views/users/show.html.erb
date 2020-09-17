@@ -1,23 +1,25 @@
-<h3><%="#{@user.first_name}'s Profil"%></h3>
-<div class="row">
-    <div class="col-8 no-right-padding">
-        <div class="results-block">
-            <%= render 'layouts/messages' %>
+<div class="container mt-4">
+    <h3><%="#{@user.first_name}'s Profil"%></h3>
+    <div class="row">
+        <div class="col-8 no-right-padding">
+            <div class="results-block">
+                <%= render 'layouts/messages' %>
+            </div>
+            <div class="card card-header results-block">
+                <table class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <td><strong>Name: </strong> <%= @user.full_name%></td>
+                            <td><strong>E-Mail: </strong> <%= @user.email%></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <% if @user == current_user %>
+            <%= link_to 'Zurück zur Startseite', welcome_path, class: "btn btn-primary mt-2" %>
+            <% else %>
+            <%= link_to 'Zurück zur Übersicht', auditoren_path, class: "btn btn-primary mt-2" %>
+            <% end %>
         </div>
-        <div class="card card-header results-block">
-            <table class="col-md-12">
-                <tbody>
-                    <tr>
-                        <td><strong>Name: </strong> <%= @user.full_name%></td>
-                        <td><strong>E-Mail: </strong> <%= @user.email%></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <% if @user == current_user %>
-        <%= link_to 'Zurück zur Startseite', welcome_path, class: "btn btn-primary mt-2" %>
-        <% else %>
-        <%= link_to 'Zurück zur Übersicht', auditoren_path, class: "btn btn-primary mt-2" %>
-        <% end %>
     </div>
 </div>

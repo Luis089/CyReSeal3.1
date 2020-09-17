@@ -37,22 +37,22 @@ body {
 //nav
 
 .navbar {
-background-color: white !important;
-border-bottom: grey;
+  background-color: white !important;
+  border-bottom: grey;
 }
 
 .nav-link, .nav-item, .footer-link, #copyright-text{
-    color:  #454d55;
+    color:  #454d55 !important;
     text-decoration: none;
 }
-.nav-link:hover, .nav-item:hover, .footer-link:hover, #copyright-text:hover{
-    color: #454d55;
+.nav-link:hover, .nav-item:hover, .footer-link:hover, #copyright-text:hover, .navbar-brand:hover {
+    color: #454d55 !important;
     text-decoration: none;
 }
 
 .navbar-brand {
 font-size: 2rem;
-color: #454d55;;
+color: #000000;
 }
 //icon
 

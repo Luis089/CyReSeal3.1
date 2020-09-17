@@ -17,7 +17,6 @@
             </li>
             <li class="nav-item <%= 'active' if request.path == about_path%>">
                 <%= link_to fa_icon('info-circle fw', text: "About"), about_path, class:"nav-link"%>
-
             </li>
         </ul>
         <%end%>
@@ -31,7 +30,7 @@
                 <%= link_to fa_icon('user fw', text: "#{current_user.full_name}"),user_path(current_user), class:"nav-item user-name"%>
             </li>
             <li class="nav-item">
-                <%= link_to 'Log out',  destroy_user_session_path, class:"btn btn-outline-danger loggout-button", method: :delete %>
+                <%= link_to fa_icon('sign-out-alt fw', text: "Abmelden"),  destroy_user_session_path, method: :delete, class:"nav-link" %>
             </li>
         </ul>
     </div>
