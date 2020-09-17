@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root "welcome#index"
   devise_for :users
+  devise_scope :user do
+    root :to => "devise/sessions#new"
+  end
+  get "index", to: "pages#index"
+  get "about", to: "pages#about"
+  get "auditoren", to: "users#index"
+  resources :users, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -2,27 +2,32 @@ $enable-shadows: true;
 
 @import 'bootstrap/dist/css/bootstrap';
 
+//nav
+
 .navbar {
 background-color: #454d55 !important;
 
 }
 
+.nav-link, .nav-item{
+    color: white;
+    text-decoration: none;
+}
+.nav-link:hover, .nav-item:hover{
+    color: rgb(230, 225, 225);
+    text-decoration: none;
+}
+
 .navbar-brand {
 font-size: 2rem;
 }
+//icon
 
-.no-right-padding{
-padding-right: 0 !important;
+.fa {
+  color: rgb(255, 255, 255);
 }
 
-.no-left-padding{
-padding-left: 0 !important;
-}
-
-.results-block{
-    display: block;
-    color: #454d55;
-}
+//custom
 
 .loggout-button{
     margin-right: 10px;
@@ -39,12 +44,13 @@ padding-left: 0 !important;
     color: white;
 }
 
-.table-list{
-border-radius: 10px;
-}
+//headlines
 
 h1{
    color: #454d55;
+}
+h2{
+  color: #454d55;
 }
 
 h3{
@@ -53,4 +59,62 @@ h3{
 
 h5{
     color: #454d55;
+}
+
+//footer
+
+
+#sticky-footer{
+    width: 100%;
+    height: 50px;
+    clear: both;
+    position: fixed;
+    bottom: 0;
+}
+
+#copyright-text{
+  margin-top: 12px;
+}
+
+
+
+/* Pagination */
+
+.flickr_pagination {
+  text-align: center;
+  padding: 0.3em;
+  cursor: default; }
+  .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+    padding: 0.2em 0.5em; 
+    border-radius: 5px;
+  }
+  .flickr_pagination .disabled {
+    color: rgb(110, 117, 117) }
+  .flickr_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    color: rgb(221, 215, 215) }
+  .flickr_pagination a {
+    border: 1px solid rgb(167, 165, 165);
+    color: rgb(40, 133, 133);
+    text-decoration: none; }
+    .flickr_pagination a:hover, .flickr_pagination a:focus {
+      border-color: whitesmoke;
+      background: rgb(49, 82, 82);
+      color: white; }
+  .flickr_pagination .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em; }
+  .flickr_pagination .previous_page, .flickr_pagination .next_page {
+    border-width: 2px; }
+  .flickr_pagination .previous_page {
+    margin-right: 1em; }
+  .flickr_pagination .next_page {
+    margin-left: 1em; }
+
+.zoom {
+  transition: transform .1s;
+}
+.zoom:hover {
+  transform: scale(1.2);
 }

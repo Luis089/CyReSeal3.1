@@ -28,6 +28,7 @@ gem 'rolify'
 gem 'pundit'
 gem 'font-awesome-rails'
 gem 'bootstrap'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

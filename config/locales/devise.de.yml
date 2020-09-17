@@ -357,3 +357,7 @@ de:
       long: "%A, %d. %B %Y, %H:%M Uhr"
       short: "%d. %B, %H:%M Uhr"
     pm: nachmittags
+  will_paginate:
+    previous_label: "&#8592; Zurück"
+    next_label: "Weiter &#8594;"
+    page_gap: "&hellip;"
