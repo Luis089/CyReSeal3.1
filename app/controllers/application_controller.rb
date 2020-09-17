@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, :except => [:about]
+  before_action :authenticate_user!, :except => [:about, :landing]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path
+    root_path
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    index_path
+    welcome_path
   end
 end

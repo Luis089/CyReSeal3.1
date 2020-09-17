@@ -2,29 +2,62 @@ $enable-shadows: true;
 
 @import 'bootstrap/dist/css/bootstrap';
 
+/* Page content styling */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.landing-page{
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 9rem 0;
+  background: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+.landing-page h1{
+  font-size: 3rem;
+  line-height: 3rem;
+  letter-spacing: 0.5rem;
+  background: #454d55;
+  background-clip: text;
+}
+.landing-page h2 {
+  background: #454d55;
+  background-clip: text;
+  max-width: 20rem;
+  font-size: 1rem;
+}
+
 //nav
 
 .navbar {
-background-color: #454d55 !important;
-
+background-color: white !important;
+border-bottom: grey;
 }
 
-.nav-link, .nav-item{
-    color: white;
+.nav-link, .nav-item, .footer-link, #copyright-text{
+    color:  #454d55;
     text-decoration: none;
 }
-.nav-link:hover, .nav-item:hover{
-    color: rgb(230, 225, 225);
+.nav-link:hover, .nav-item:hover, .footer-link:hover, #copyright-text:hover{
+    color: #454d55;
     text-decoration: none;
 }
 
 .navbar-brand {
 font-size: 2rem;
+color: #454d55;;
 }
 //icon
 
 .fa {
-  color: rgb(255, 255, 255);
+  color:#454d55;
 }
 
 //custom
@@ -36,15 +69,15 @@ font-size: 2rem;
 .user-name{
     margin-top: 3.5%;
     padding-right: 10px;
-    color: white;
+    color: #454d55;
 }
 
 .card-top-10{
     background-color: #454d55ad;
-    color: white;
+    color: #454d55;
 }
 
-//headlines
+headlines
 
 h1{
    color: #454d55;
@@ -74,6 +107,15 @@ h5{
 
 #copyright-text{
   margin-top: 12px;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
 }
 
 

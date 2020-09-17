@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_scope :user do
-    root :to => "devise/sessions#new"
-  end
-  get "index", to: "pages#index"
+  root "pages#landing"
+  get "welcome", to: "pages#welcome"
   get "about", to: "pages#about"
   get "auditoren", to: "users#index"
   resources :users, only: [:show]

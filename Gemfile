@@ -26,7 +26,7 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'devise'
 gem 'rolify'
 gem 'pundit'
-gem 'font-awesome-rails'
+gem 'font_awesome5_rails'
 gem 'bootstrap'
 gem 'will_paginate', '~> 3.1.0'
 

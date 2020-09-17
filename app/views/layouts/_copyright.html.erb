@@ -1,5 +1,15 @@
-<footer id="sticky-footer" class="bg-dark text-white">
-    <div class="container text-center" id="copyright-text">
-        <small>Copyright &copy; <%= link_to 'Luis Holzer', 'https://github.com/Luis089/CyReSeal_3.0' %></small>
+<footer id="sticky-footer" class="bg-light border-top">
+    <div class="text-center" id="copyright-text">
+        <small class="ml-3 pl-3">Copyright &copy;
+            <%= link_to 'Luis Holzer', 'https://github.com/Luis089/CyReSeal_3.0', class:"footer-link" %></small>
+        <ul>
+            <li>
+                <% if current_user%>
+                <%= link_to about_path, class:"footer-link" do %>
+                <small class="pr-2"><span>About</span> <%= fa_icon('info fw') %></small>
+                <%end%>
+                <%end%>
+            </li>
+        </ul>
     </div>
 </footer>
