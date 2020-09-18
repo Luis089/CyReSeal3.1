@@ -11,14 +11,11 @@
 </head>
 
 
-<body class="d-flex flex-column">
-  <header>
-    <%= render 'layouts/nav' %>
-  </header>
+<body>
+  <%= render 'layouts/nav' %>
   <%= render 'layouts/messages' %>
   <%= yield %>
-  <%= render "layouts/copyright"%>
-
 </body>
+<%= render "layouts/copyright"%>
 
 </html>

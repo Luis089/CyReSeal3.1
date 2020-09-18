@@ -2,11 +2,14 @@ $enable-shadows: true;
 
 @import 'bootstrap/dist/css/bootstrap';
 
+
 /* Page content styling */
-html,
-body {
-  height: 100%;
-  width: 100%;
+
+html, body{
+
+  height: auto;
+  margin-bottom: 60px;
+
 }
 
 .landing-page{
@@ -37,28 +40,23 @@ body {
 //nav
 
 .navbar {
-  background-color: white !important;
   border-bottom: grey;
 }
 
-.nav-link, .nav-item, .footer-link, #copyright-text{
-    color:  #454d55 !important;
+.nav-link, .footer-link, #copyright-text{
+    color:  #454d55;
     text-decoration: none;
 }
-.nav-link:hover, .nav-item:hover, .footer-link:hover, #copyright-text:hover, .navbar-brand:hover {
-    color: #454d55 !important;
+.nav-link:hover, .nav-item:hover, .footer-link:hover, #copyright-text:hover {
+    color: #323233;
     text-decoration: none;
 }
 
-.navbar-brand {
+.navbar-brand, .navbar-brand:hover {
 font-size: 2rem;
-color: #000000;
+color: #323233;
 }
-//icon
 
-.fa {
-  color:#454d55;
-}
 
 //custom
 
@@ -71,16 +69,30 @@ color: #000000;
     padding-right: 10px;
     color: #454d55;
 }
+//card-styling
 
-.card-top-10{
-    background-color: #454d55ad;
+.card-header{
+    background-color: #dddddd;
+}
+.card-header a{
+     color: #454d55;
+     text-decoration: none;
+}
+.card-header a:hover{
+     color: #aaaaaa;
+     text-decoration: none;
+}
+
+.card-footer{
+    background-color: #ffffffad;
     color: #454d55;
 }
 
-headlines
+//headlines
 
 h1{
-   color: #454d55;
+   color: #2e363d;
+   font-size: 2em;
 }
 h2{
   color: #454d55;
@@ -100,8 +112,9 @@ h5{
 #sticky-footer{
     width: 100%;
     height: 50px;
-    clear: both;
+    margin-top: 20px;
     position: fixed;
+    clear: both;
     bottom: 0;
 }
 

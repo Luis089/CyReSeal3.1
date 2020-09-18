@@ -10,6 +10,8 @@ de:
         current_sign_in_at: Aktuelle Anmeldung vom
         current_sign_in_ip: IP der aktuellen Anmeldung
         email: E-Mail
+        first_name: Vorname
+        last_name: Nachname
         encrypted_password: Verschlüsseltes Passwort
         failed_attempts: Fehlversuche
         last_sign_in_at: Letzte Anmeldung am
@@ -143,9 +145,8 @@ de:
       not_locked: ist nicht gesperrt
       not_saved:
         one: "%{resource} konnte aufgrund eines Fehlers nicht gespeichert werden:"
-        other: "%{count} Fehler verhinderten das Speichern von %{resource}:"
 
-        date:
+  date:
     abbr_day_names:
     - So
     - Mo

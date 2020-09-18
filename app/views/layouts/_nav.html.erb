@@ -3,7 +3,7 @@
         <% if current_user %>
         <%= link_to fa_icon('shield-alt fw', text: 'CyReSeal'),welcome_path, class:"navbar-brand"%>
         <ul class="navbar-nav">
-            <li class="nav-item <%= 'active' if current_page?(controller:"users", action: "index")%>">
+            <li class="nav-item <%= 'active' if current_page?(auditoren_path)%>">
                 <%= link_to auditoren_path, class:"nav-link" do %>
                 <%= fa_icon('suitcase fw') %>
                 <span>Auditoren</span>
