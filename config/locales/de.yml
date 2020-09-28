@@ -135,16 +135,7 @@ de:
         resend_unlock_instructions: Anleitung zum Entsperren erneut schicken
       send_instructions: Du erhältst in wenigen Minuten eine E-Mail mit der Anleitung, wie Du Dein Konto entsperren kannst.
       send_paranoid_instructions: Falls Deine E-Mail-Adresse in unserer Datenbank existiert, erhältst Du in wenigen Minuten eine E-Mail, mit der Anleitung, wie Du Dein Konto entsperren kannst.
-      unlocked: Dein Konto wurde entsperrt. Bitte melden Dich an, um fortzufahren.
-  errors:
-    messages:
-      already_confirmed: wurde bereits bestätigt, bitte versuche, Dich anzumelden
-      confirmation_period_expired: musste innerhalb von %{period} bestätigt werden, bitte neu anfordern.
-      expired: ist abgelaufen, bitte neu anfordern
-      not_found: nicht gefunden
-      not_locked: ist nicht gesperrt
-      not_saved:
-        one: "%{resource} konnte aufgrund eines Fehlers nicht gespeichert werden:"
+      unlocked: Dein Konto wurde entsperrt. Bitte melden Dich an, um fortzufahren
 
   date:
     abbr_day_names:
@@ -248,6 +239,13 @@ de:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      already_confirmed: wurde bereits bestätigt, bitte versuche, Dich anzumelden
+      confirmation_period_expired: musste innerhalb von %{period} bestätigt werden, bitte neu anfordern.
+      expired: ist abgelaufen, bitte neu anfordern
+      not_found: nicht gefunden
+      not_locked: ist nicht gesperrt
+      not_saved:
+        one: "%{resource} konnte aufgrund eines Fehlers nicht gespeichert werden:"
       accepted: muss akzeptiert werden
       blank: muss ausgefüllt werden
       confirmation: stimmt nicht mit %{attribute} überein
