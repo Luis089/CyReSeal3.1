@@ -5,5 +5,6 @@ class Answers < ActiveRecord::Migration[6.0]
       t.integer :points
 
       t.timestamps
+    end
   end
 end

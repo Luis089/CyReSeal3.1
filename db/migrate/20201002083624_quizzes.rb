@@ -5,5 +5,6 @@ class Quizzes < ActiveRecord::Migration[6.0]
       t.string :description
 
       t.timestamps
+    end
   end
 end

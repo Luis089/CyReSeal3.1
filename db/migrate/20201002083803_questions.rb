@@ -4,5 +4,6 @@ class Questions < ActiveRecord::Migration[6.0]
       t.string :question_text
       t.string :question_title
       t.timestamps
+    end
   end
 end
