@@ -1,0 +1,18 @@
+<%= @role.user.nick_name %> scored <%= Result.quiz_score(@role, @quiz) %> Points!
+
+<%Result.quiz_results(@role, @quiz).each do |result| %>
+
+<p>
+<%=result.question.question_text %>
+<%=result.answer.answer_text %>
+</p>
+
+<%end%>
+
+
+
+
+
+
+
+
