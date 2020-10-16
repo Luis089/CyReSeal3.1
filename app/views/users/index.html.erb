@@ -11,10 +11,10 @@
             <div class="col-7 mb-3">
                 <div class="card text-center shadow mb-3" id="article-card">
                     <div class="card-header font-italic font-weight-bold" id="card-header">
-                        <%= link_to user.full_name, user%>
+                        <%= link_to user.full_name, users_path%>
                     </div>
                     <div class="card-body">
-                        <%=link_to 'Profil ansehen', user, class: "btn btn-outline-success"%>
+                        <%=link_to 'Profil ansehen', users_path, class: "btn btn-outline-success"%>
                     </div>
                     <div class="card-footer text-muted" id="card-footer">
                         <small>Joined <%= time_ago_in_words(user.created_at) %> ago </small>

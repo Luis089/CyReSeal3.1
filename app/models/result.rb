@@ -1,29 +1,29 @@
 class Result < ApplicationRecord
     belongs_to :answer
     belongs_to :question
-    belongs_to :role
+    belongs_to :identity
 
 
-  def self.role_results(role)
+  def self.identity_results(identity)
     # give all results scored at any quiz
-    self.where(role_id: role.id)
+    self.where(identity_id: identity.id)
   end 
 
-  def self.quiz_results(role, quiz)
+  def self.quiz_results(identity, quiz)
     # gives a list of all results scored at a certain quiz
-    role_results(role).where(question_id: quiz.question_ids)
+    identity_results(identity).where(question_id: quiz.question_ids)
   end
 
-  def self.quiz_score(role, quiz)
+  def self.quiz_score(identity, quiz)
     # calculates the total score the user achieved in a certain quiz
-    quiz_results(role, quiz).sum do |result|
+    quiz_results(identity, quiz).sum do |result|
       result.answer.points
     end
   end
 
-  def self.quiz_score(role, quiz)
+  def self.quiz_score(identity, quiz)
     # calculates the total score the user achieved in a certain quiz
-    quiz_results(role, quiz).sum do |result|
+    quiz_results(identity, quiz).sum do |result|
       result.answer.points
     end
   end

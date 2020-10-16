@@ -1,14 +1,14 @@
-class rolesController < ApplicationController
+class identitiesController < ApplicationController
     def index
-        @roles = role.all
+        @identities = identity.all
     end
     
     def new
-        @role = role.new 
+        @identity = identity.new 
     end
     
     def show
-        @role = role.find(params[:id])
+        @identity = identity.find(params[:id])
     end
     
     def edit

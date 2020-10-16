@@ -1,5 +1,4 @@
 class QuizzesController < ApplicationController
-    skip_before_action :authenticated, only: [:index]
    
     def index
       @quizzes = Quiz.all
@@ -13,13 +12,13 @@ class QuizzesController < ApplicationController
   
   
     def auditor_show
-      @roles = @quiz.roles
+      @identities = @quiz.identities
       
       render 'auditor_show'
     end 
   
     def customer_show
-      @role = @quiz.role(current_user)
+      @identity = @quiz.identity(current_user)
       @user = current_user
       @question = @quiz.next_question(current_user)
       if @question
@@ -37,13 +36,13 @@ class QuizzesController < ApplicationController
         auditor_show
       else
         # first visit? enroll as a customer
-        if !@quiz.customer?(current_user)
-          @quiz.participate(current_user)
+        if  !@quiz.customer?(current_user)
+             @quiz.participate(current_user)
         end
         customer_show
       end
-  
     end
+
   
   
     def create
@@ -52,9 +51,6 @@ class QuizzesController < ApplicationController
       @quiz.save
       @quiz.assign_auditor_role(current_user)
       redirect_to quiz_path(@quiz)
-      else 
-        redirect_to new_quiz_path
-      end 
     end 
   
   
@@ -74,5 +70,4 @@ class QuizzesController < ApplicationController
     def quiz_params
       params.require(:quiz).permit(:title , :description ,:question_ids)
     end 
-  end
-  
+end

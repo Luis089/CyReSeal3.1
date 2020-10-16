@@ -1,7 +1,7 @@
 class Answer < ApplicationRecord
     belongs_to :question
     has_many :results
-    has_many :roles , through: :results
+    has_many :identities , through: :results
 
     validates :points, presence: true
     validates :answer_text, presence: true, :length => {:minimum => 1}

@@ -81,19 +81,19 @@
 
 <h2>Show Results</h2>
 
-<div class="panel-group" id="customerAccordion" role="tablist" aria-multiselectable="true">
+<div class="panel-group" id="customerAccordion" identity="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
-    <% @quiz.roles.each do |customer| %>
-    <div class="panel-heading" role="tab" id="customerHeading<%=customer.id%>">
+    <% @quiz.identities.each do |customer| %>
+    <div class="panel-heading" identity="tab" id="customerHeading<%=customer.id%>">
       <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#customerAccordion" href="#customerCollapse<%=customer.id%>" aria-expanded="false" aria-controls="customerCollapse<%=customer.id%>">
-          <%=customer.user.nick_name%>
+        <a class="collapsed" identity="button" data-toggle="collapse" data-parent="#customerAccordion" href="#customerCollapse<%=customer.id%>" aria-expanded="false" aria-controls="customerCollapse<%=customer.id%>">
+          <%=customer.user.firm%>
         </a>
       </h4>
     </div>
-    <div id="customerCollapse<%=customer.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="customerHeading<%=customer.id%>">
+    <div id="customerCollapse<%=customer.id%>" class="panel-collapse collapse" identity="tabpanel" aria-labelledby="customerHeading<%=customer.id%>">
       <div class="panel-body">
-      <% @role = customer %>
+      <% @identity = customer %>
       <%= render 'stats' %>
       </div>
     </div>
@@ -114,8 +114,8 @@
 <!--
 
 
-<% @roles.each do |role|%>
-<p><%= role.user.nick_name %></p>
+<% @identities.each do |identity|%>
+<p><%= identity.user.firm %></p>
 
 <%end%>
 

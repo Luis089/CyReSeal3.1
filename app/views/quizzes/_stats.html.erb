@@ -1,6 +1,6 @@
-<%= @role.user.nick_name %> scored <%= Result.quiz_score(@role, @quiz) %> Points!
+<%= @identity.user.firm %> scored <%= Result.quiz_score(@identity, @quiz) %> Points!
 
-<%Result.quiz_results(@role, @quiz).each do |result| %>
+<%Result.quiz_results(@identity, @quiz).each do |result| %>
 
 <p>
 <%=result.question.question_text %>

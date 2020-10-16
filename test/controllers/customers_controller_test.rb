@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class rolesControllerTest < ActionDispatch::IntegrationTest
+class identitiesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

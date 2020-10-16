@@ -24,9 +24,7 @@ class ResultsController < ApplicationController
     private
   
     def result_params
-      params.require(:result).permit( :role_id, :answer_id, :question_id)
+      params.require(:result).permit( :identity_id, :answer_id, :question_id)
     end
-  
-  
   end
   

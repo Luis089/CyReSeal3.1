@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     post "users/sign_up", to: "devise/registrations#create"
   end
   devise_for :users
-  resources :roles
+  resources :identities
   resources :quizzes
   resources :questions 
   resources :answers 
@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   root "pages#landing"
   get "welcome", to: "pages#welcome"
   get "about", to: "pages#about"
-  get "auditoren", to: "users#index"
+  get "users", to: "users#index"
+  get "user", to: "users#show"
 end

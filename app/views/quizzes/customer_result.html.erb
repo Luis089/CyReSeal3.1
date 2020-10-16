@@ -1,7 +1,7 @@
 <h1><%=@quiz.title%> - customer Result Page</h1>
-<h2>You scored: <%= Result.quiz_score(@role, @quiz) %> Points!</h2>
+<h2>You scored: <%= Result.quiz_score(@identity, @quiz) %> Points!</h2>
 
-<%Result.quiz_results(@role, @quiz).each do |result| %>
+<%Result.quiz_results(@identity, @quiz).each do |result| %>
 
 <p>
 <h3><%=result.question.question_text %></h3>

@@ -1,8 +1,6 @@
 class User < ApplicationRecord
-    has_many :roles
-    has_many :quizzes , through: :roles
-
-    validates :firm, presence: true, uniqueness: true,:length => {:minimum => 1}
+    has_many :identities
+    has_many :quizzes , through: :identities
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
