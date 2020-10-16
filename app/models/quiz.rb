@@ -1,15 +1,15 @@
 class Quiz < ApplicationRecord
     has_many :questions
-    has_many :participants
-    has_many :users , through: :participants
+    has_many :customers
+    has_many :users , through: :customers
 
     validates :title, presence: true, :length => {:minimum => 1}
     validates :description, presence: true, :length => {:minimum => 1}
 
     def role (user)
-      participant = self.participants.find_by(user_id: user.id)
-      if  participant 
-        participant.role
+      customer = self.customers.find_by(user_id: user.id)
+      if  customer 
+        customer.role
       else 
         nil
       end 
@@ -28,25 +28,25 @@ class Quiz < ApplicationRecord
 
    def assign_teacher_role(user)
      # sets user as a teacher upon quiz creation / does not check for existing student status etc.
-     Participant.create(quiz_id: self.id, user_id: user.id, role: "teacher")
+     customer.create(quiz_id: self.id, user_id: user.id, role: "teacher")
    end
 
    def participate(user)
-        # a user want to participant in this quiz and he is not a teacher nor a student, method to sign up to this quiz
-       Participant.create(quiz_id: self.id, user_id: user.id, role: "student")
+        # a user want to customer in this quiz and he is not a teacher nor a student, method to sign up to this quiz
+       customer.create(quiz_id: self.id, user_id: user.id, role: "student")
    end
 
-   def participant(user)
-    # returns the participant object of a user
-    self.participants.find_by(user_id: user.id)
+   def customer(user)
+    # returns the customer object of a user
+    self.customers.find_by(user_id: user.id)
   end
 
   def next_question(user)
      # hopefully finds the first question that is unanswered / nil if none found
-     user_participant = participant(user)
-     remaining_ids = self.question_ids - user_participant.results.pluck(:question_id)
+     user_customer = customer(user)
+     remaining_ids = self.question_ids - user_customer.results.pluck(:question_id)
 
-    #  user_questions   = user_participant.results.where(question_id: self.questions)
+    #  user_questions   = user_customer.results.where(question_id: self.questions)
     #  last_question_id = !user_questions.empty? ? user_questions.last.id : -1
     #  outstanding_questions = self.questions.where("id > ?" , last_question_id)
       if !remaining_ids.empty?
@@ -58,7 +58,7 @@ class Quiz < ApplicationRecord
 
   def self.all_user_quizzes(user)
     # all quizzes the user partizipated
-    self.where(participants: user.participants)
+    self.where(customers: user.customers)
   end
 
 
