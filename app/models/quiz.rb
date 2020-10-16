@@ -15,25 +15,20 @@ class Quiz < ApplicationRecord
       end 
     end 
 
-    def teacher?(user)
+    def auditor?(user)
        user_role = self.role(user)
-       !!user_role && user_role == "teacher"
+       !!user_role && user_role == "auditor"
     end 
 
-    def student?(user)
+    def customer?(user)
         user_role = self.role(user)
-        !!user_role && user_role == "student"
+        !!user_role && user_role == "customer"
     end 
 
 
-   def assign_teacher_role(user)
-     # sets user as a teacher upon quiz creation / does not check for existing student status etc.
-     role.create(quiz_id: self.id, user_id: user.id, role: "teacher")
-   end
-
-   def participate(user)
-        # a user want to role in this quiz and he is not a teacher nor a student, method to sign up to this quiz
-       role.create(quiz_id: self.id, user_id: user.id, role: "student")
+   def assign_auditor_role(user)
+     # sets user as a auditor upon quiz creation
+     role.create(quiz_id: self.id, user_id: user.id, role: "auditor")
    end
 
    def role(user)

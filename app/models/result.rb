@@ -5,12 +5,12 @@ class Result < ApplicationRecord
 
 
   def self.role_results(role)
-    # give all results a role scored at any quiz
+    # give all results scored at any quiz
     self.where(role_id: role.id)
   end 
 
   def self.quiz_results(role, quiz)
-    # gives a list of all results a role scored at a certain quiz
+    # gives a list of all results scored at a certain quiz
     role_results(role).where(question_id: quiz.question_ids)
   end
 

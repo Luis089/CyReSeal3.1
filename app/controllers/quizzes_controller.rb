@@ -12,20 +12,20 @@ class QuizzesController < ApplicationController
     end
   
   
-    def teacher_show
+    def auditor_show
       @roles = @quiz.roles
       
-      render 'teacher_show'
+      render 'auditor_show'
     end 
   
-    def student_show
+    def customer_show
       @role = @quiz.role(current_user)
       @user = current_user
       @question = @quiz.next_question(current_user)
       if @question
-        render 'student_show'
+        render 'customer_show'
       else
-        render 'student_result'
+        render 'customer_result'
       end
     end
   
@@ -33,14 +33,14 @@ class QuizzesController < ApplicationController
     def show
       @quiz = Quiz.find(params[:id])
   
-      if @quiz.teacher?(current_user)
-        teacher_show
+      if @quiz.auditor?(current_user)
+        auditor_show
       else
-        # first visit? enroll as a student
-        if !@quiz.student?(current_user)
+        # first visit? enroll as a customer
+        if !@quiz.customer?(current_user)
           @quiz.participate(current_user)
         end
-        student_show
+        customer_show
       end
   
     end
@@ -48,18 +48,11 @@ class QuizzesController < ApplicationController
   
     def create
   
-      thumbnail = params[:quiz][:thumbnail]
       @quiz = Quiz.new(quiz_params)
-      if thumbnail && @quiz.save
-        @quiz.image_url = @quiz.id.to_s  # write additional image url attribute for further flexibility
-        File.open(Rails.root.join('public', 'img/thumbnails', @quiz.image_url), 'wb') do |file|
-          file.write(thumbnail.read)
-        end
-        @quiz.save
-        @quiz.assign_teacher_role(current_user)
-        redirect_to quiz_path(@quiz)
+      @quiz.save
+      @quiz.assign_auditor_role(current_user)
+      redirect_to quiz_path(@quiz)
       else 
-        flash[:errors] = @quiz.errors.full_messages + (!thumbnail ? ["Please provide a thumbnail"] : [])
         redirect_to new_quiz_path
       end 
     end 
@@ -74,7 +67,6 @@ class QuizzesController < ApplicationController
       if @quiz.update
         redirect_to quiz_path(@quiz)
       else 
-        flash[:errors] = @quiz.errors.full_messages
         redirect_to new_quiz_path
       end 
     end 
