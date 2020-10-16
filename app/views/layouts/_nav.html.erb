@@ -27,14 +27,7 @@
                 <span>Neuer Fragebogen</span>
                 <% end %>
             </li>
-            <%= link_to fa_icon('shield-alt fw', text: 'Fragebögenl'), quizzes_path, class:"navbar-brand"%>
-            <a href="/quizzes">Show Quizzes</a></li>
         </ul>
-        <%if @current_user %> 
-        <li><a href="/results">Show Results</a></li>
-        <li><a href="/quizzes/new">Create Quiz</a></li>
-        <%else%>
-        <%= link_to fa_icon('shield-alt fw', text: 'CyReSeal'),root_path, class:"navbar-brand"%>
         <ul class="navbar-nav ml-auto">
             <li><%= link_to fa_icon('sign-in-alt fw',text:"Anmelden"), new_user_session_path, class:"nav-link mr-5" %>
             </li>

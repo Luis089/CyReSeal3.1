@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  resources :roles
+  resources :quizzes
+  resources :questions 
+  resources :answers 
+  resources :results 
   devise_for :users
   devise_scope :user do
-    resources :roles
-    resources :quizzes
-    resources :questions 
-    resources :answers 
-    resources :results 
     post "users/sign_up", to: "devise/registrations#create"
   end
   root "pages#landing"
