@@ -28,6 +28,7 @@
                 <% end %>
             </li>
         </ul>
+        <% else %>
         <ul class="navbar-nav ml-auto">
             <li><%= link_to fa_icon('sign-in-alt fw',text:"Anmelden"), new_user_session_path, class:"nav-link mr-5" %>
             </li>
@@ -49,7 +50,6 @@
                 <%= link_to fa_icon('sign-out-alt fw', text: "Abmelden"),  destroy_user_session_path, method: :delete, class:"nav-link" %>
             </li>
         </ul>
-    </div>
-    <% end%>
+        <% end%>
     </div>
 </nav>
