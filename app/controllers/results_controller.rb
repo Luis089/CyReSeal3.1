@@ -15,7 +15,6 @@ class ResultsController < ApplicationController
   
     def create
       @result = Result.new(result_params)
-      # TODO get customer from current_user and not from user's form input!
       if @result.save
         redirect_to request.referrer 
       else 
@@ -25,7 +24,7 @@ class ResultsController < ApplicationController
     private
   
     def result_params
-      params.require(:result).permit( :customer_id, :answer_id, :question_id)
+      params.require(:result).permit( :role_id, :answer_id, :question_id)
     end
   
   

@@ -1,5 +1,5 @@
-class AddQuizIdToCustomers < ActiveRecord::Migration[6.0]
+class AddQuizIdToroles < ActiveRecord::Migration[6.0]
   def change
-    add_column :customers, :quiz_id, :integer
+    add_column :roles, :quiz_id, :integer
   end
 end

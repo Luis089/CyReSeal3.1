@@ -13,13 +13,13 @@ class QuizzesController < ApplicationController
   
   
     def teacher_show
-      @customers = @quiz.customers
+      @roles = @quiz.roles
       
       render 'teacher_show'
     end 
   
     def student_show
-      @customer = @quiz.customer(current_user)
+      @role = @quiz.role(current_user)
       @user = current_user
       @question = @quiz.next_question(current_user)
       if @question

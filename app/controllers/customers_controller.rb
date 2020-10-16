@@ -1,14 +1,14 @@
-class CustomersController < ApplicationController
+class rolesController < ApplicationController
     def index
-        @customers = Customer.all
+        @roles = role.all
     end
     
     def new
-        @customer = Customer.new 
+        @role = role.new 
     end
     
     def show
-        @customer = Customer.find(params[:id])
+        @role = role.find(params[:id])
     end
     
     def edit

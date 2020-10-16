@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_082005) do
     t.integer "question_id"
   end
 
-  create_table "customers", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_10_16_082005) do
     t.integer "question_id"
     t.integer "user_id"
     t.integer "answer_id"
-    t.integer "customer_id"
+    t.integer "role_id"
   end
 
   create_table "users", force: :cascade do |t|

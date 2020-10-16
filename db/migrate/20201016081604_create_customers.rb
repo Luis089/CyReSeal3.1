@@ -1,6 +1,6 @@
-class CreateCustomers < ActiveRecord::Migration[6.0]
+class Createroles < ActiveRecord::Migration[6.0]
     def change
-      create_table :customers do |t|
+      create_table :roles do |t|
         t.string :role
         t.timestamps
     end
