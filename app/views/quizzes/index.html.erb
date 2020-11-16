@@ -1,0 +1,12 @@
+<div class="container mt-4">
+      
+<%@quizzes.each do |quiz|%>
+<div class="col-md-4 col-sm-6 padleft-right">
+              <h3><%= link_to quiz.title,  quiz_path(quiz)%></h3>
+              <p><%= quiz.description %></p>
+        </div>
+<%end%>
+
+</div>
+
+
