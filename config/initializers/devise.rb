@@ -247,7 +247,11 @@ Devise.setup do |config|
   # config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
+<<<<<<< HEAD
   # devise partaker declared in your routes (usually :user).
+=======
+  # devise identity declared in your routes (usually :user).
+>>>>>>> 97aa6089faee5f0297086535b11670971592e8f5
   # config.default_scope = :user
 
   # Set this configuration to false if you want /users/sign_out to sign out

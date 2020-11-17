@@ -28,7 +28,6 @@ class QuizzesController < ApplicationController
         render 'customer_result'
       end
     end
-
     def show
       @quiz = Quiz.find(params[:id])
   

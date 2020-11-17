@@ -73,7 +73,11 @@ development:
     headers:
       'Access-Control-Allow-Origin': '*'
     watch_options:
+<<<<<<< HEAD
       ignored: '/node_modules/'
+=======
+      ignored: '**/node_modules/**'
+>>>>>>> 97aa6089faee5f0297086535b11670971592e8f5
 
 
 test:
@@ -94,4 +98,7 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+<<<<<<< HEAD
   
+=======
+>>>>>>> 97aa6089faee5f0297086535b11670971592e8f5

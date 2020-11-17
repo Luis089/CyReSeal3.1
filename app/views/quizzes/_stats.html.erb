@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 <%= @partaker.user.first_name %> scored <%= Result.quiz_score(@partaker, @quiz) %> Points!
 
 <%Result.quiz_results(@partaker, @quiz).each do |result| %>
+=======
+<%= @identity.user.firm %> scored <%= Result.quiz_score(@identity, @quiz) %> Points!
+
+<%Result.quiz_results(@identity, @quiz).each do |result| %>
+>>>>>>> 97aa6089faee5f0297086535b11670971592e8f5
 
 <p>
 <%=result.question.question_text %>

@@ -37,4 +37,3 @@
           params.require(:question).permit(:question_title, :question_text, :type , :image_url , :quiz_id)
         end 
       end
-

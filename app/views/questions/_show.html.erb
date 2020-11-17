@@ -1,9 +1,15 @@
 
 <h2><%=@question.question_title%></h2>
 <h3><%=@question.question_text%></h3>
+<<<<<<< HEAD
 <%=form_for Result.new(partaker: @quiz.partaker(@current_user), question: @question) do |f|%>
 <p><%=f.collection_select :answer_id , @question.answers, :id, :answer_text%></p>
 <%=f.hidden_field :partaker_id%>
+=======
+<%=form_for Result.new(identity: @quiz.identity(@current_user), question: @question) do |f|%>
+<p><%=f.collection_select :answer_id , @question.answers, :id, :answer_text%></p>
+<%=f.hidden_field :identity_id%>
+>>>>>>> 97aa6089faee5f0297086535b11670971592e8f5
 <%=f.hidden_field :question_id%>
 <%=f.submit 'Next', class: 'btn btn-green btn-block btn-flat'%>
 
