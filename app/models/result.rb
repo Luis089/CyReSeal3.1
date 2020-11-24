@@ -1,23 +1,24 @@
 class Result < ApplicationRecord
+    resourcify
     belongs_to :answer
     belongs_to :question
-    belongs_to :partaker
+    belongs_to :attempt
 
-
-  def self.partaker_results(partaker)
+  def self.attempt_results(attempt)
     # give all results scored at any quiz
-    self.where(partaker_id: partaker.id)
+    self.where(attempt_id: attempt.id)
   end 
 
-  def self.quiz_results(partaker, quiz)
+  def self.quiz_results(attempt, quiz)
     # gives a list of all results scored at a certain quiz
-    partaker_results(partaker).where(question_id: quiz.question_ids)
+    attempt_results(attempt).where(question_id: quiz.question_ids)
   end
 
-  def self.quiz_score(partaker, quiz)
+  def self.quiz_score(attempt, quiz)
     # calculates the total score the user achieved in a certain quiz
-    quiz_results(partaker, quiz).sum do |result|
+    quiz_results(attempt, quiz).sum do |result|
       result.answer.points
     end
   end
+
 end

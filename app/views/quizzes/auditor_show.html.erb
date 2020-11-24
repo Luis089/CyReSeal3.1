@@ -1,88 +1,12 @@
 <div id="page-content">
     <div class="container mt-4">
-<h1><%=@quiz.title%></h1>
-
-<%flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-
-<h2>Edit Quiz</h2>
-
-<div class="panel-group" id="questionAccordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-
-    <% @quiz.questions.each do |question| %>
-    <div class="panel-heading" role="tab" id="questionHeading<%=question.id%>">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#questionAccordion" href="#questionCollapse<%=question.id%>" aria-expanded="false" aria-controls="questionCollapse<%=question.id%>">
-          <%=question.question_title%>
-        </a>
-      </h4>
+        <div class="shadow-sm p-3 mb-5 bg-white rounded">
+          <h1><%=@quiz.title%></h1>
+          <%= link_to fa_icon('edit fw',text:"Fragebogen anpassen"), edit_quiz_path, class:"btn btn-info mt-2"%>
+        </div>
+          <h3>Ergebnisse anzeigen</h3>
+          <%= render 'stats' %>
     </div>
-    <div id="questionCollapse<%=question.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionHeading<%=question.id%>">
-      <div class="panel-body">
-      <% @question = question %>
-      <%= render "questions/form" %>
-      </div>
-    </div>
-    <%end%>
-
-    <div class="panel-heading" role="tab" id="questionHeadingNew">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#questionAccordion" href="#questionCollapseNew" aria-expanded="false" aria-controls="questionCollapseNew">
-          New Question
-        </a>
-      </h4>
-    </div>
-    <div id="questionCollapseNew" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionHeadingNew">
-      <div class="panel-body">
-      <% @question = Question.new(quiz_id: @quiz.id) %>
-      <%= render "questions/form" %>
-      </div>
-    </div>
-
-  </div>
 </div>
-
-<h2>Show Results</h2>
-
-<div class="panel-group" id="customerAccordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <% @quiz.partakers.each do |customer| %>
-    <div class="panel-heading" role="tab" id="customerHeading<%=customer.id%>">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#customerAccordion" href="#customerCollapse<%=customer.id%>" aria-expanded="false" aria-controls="customerCollapse<%=customer.id%>">
-          <%=customer.user.full_name%>
-        </a>
-      </h4>
-    </div>
-    <div id="customerCollapse<%=customer.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="customerHeading<%=customer.id%>">
-      <div class="panel-body">
-      <% @partaker = customer %>
-      <%= render 'stats' %>
-      </div>
-    </div>
-    <%end%>
-  </div>
-</div>
-  </div>
-</div>
-
-<!--
-
-
-<% @partakers.each do |partaker|%>
-<p><%= partaker.user.firm %></p>
-
-<%end%>
-
-
--->
-
-
-
-
-
-
 
 

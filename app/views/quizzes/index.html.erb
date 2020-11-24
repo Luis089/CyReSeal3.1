@@ -1,12 +1,12 @@
 <div class="container mt-4">
-      
-<%@quizzes.each do |quiz|%>
-<div class="col-md-4 col-sm-6 padleft-right">
+      <%@quizzes.each do |quiz|%>
+      <div class="row">
+        <div class="col-6">
+            <div class="card card-header results-block mb-3">
               <h3><%= link_to quiz.title,  quiz_path(quiz)%></h3>
               <p><%= quiz.description %></p>
+            </div>
         </div>
+      </div>
 <%end%>
-
 </div>
-
-

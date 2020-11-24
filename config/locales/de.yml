@@ -222,7 +222,7 @@ de:
         other: "%{count} Minuten"
       x_days:
         one: ein Tag
-        other: "%{count} Tage"
+        other: "%{count} Tagen"
       x_months:
         one: ein Monat
         other: "%{count} Monate"

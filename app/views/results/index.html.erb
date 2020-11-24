@@ -2,8 +2,14 @@
     <div class="container mt-4">
          <h2>Fragebogen auswählen, um Ergebnisse zu sehen: </h2>
             <% @quizzes.each do |result| %>
-            <div class="card card-header results-block mb-3">
-                <h3><%= link_to  result.title , quiz_path(result) %> </h3>
+            <div class="row">
+                <div class="col-6">
+                    <h3>
+                        <div class="card card-header results-block mb-3">
+                         <%= link_to  result.title, quiz_path(result) %> 
+                        </div>
+                    </h3>
+                </div>
             </div>
             <% end %> 
          <%= render 'layouts/messages' %>

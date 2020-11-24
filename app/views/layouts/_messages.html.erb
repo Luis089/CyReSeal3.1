@@ -1,10 +1,8 @@
+<div class="container mt-4">
+
 <%if flash.alert%>
 <% flash.each do |name, msg| %>
-<<<<<<< HEAD
-<div class="alert alert-danger alert-dismissible fade show mb-3" partaker="alert">
-=======
-<div class="alert alert-danger alert-dismissible fade show mb-3" identity="alert">
->>>>>>> 97aa6089faee5f0297086535b11670971592e8f5
+<div class="alert alert-danger alert-dismissible fade show mb-3" attempt="alert">
     <%=msg%>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -14,11 +12,7 @@
 
 <% else%>
 <% flash.each do |name, msg| %>
-<<<<<<< HEAD
-<div class="alert alert-success alert-dismissible fade show mb-3" partaker="alert">
-=======
-<div class="alert alert-success alert-dismissible fade show mb-3" identity="alert">
->>>>>>> 97aa6089faee5f0297086535b11670971592e8f5
+<div class="alert alert-success alert-dismissible fade show mb-3" attempt="alert">
     <%=msg%>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -26,3 +20,4 @@
 </div>
 <%end%>
 <%end%>
+</div>

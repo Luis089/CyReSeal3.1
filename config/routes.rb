@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  devise_scope :user do
+   devise_scope :user do
     post "users/sign_up", to: "devise/registrations#create"
   end
-  devise_for :users
-  resources :partakers
+  resources :attempts
   resources :quizzes
   resources :questions 
   resources :answers 
   resources :results 
+  devise_for :users, controllers: { registrations: 'registrations' }
   root "pages#landing"
   get "welcome", to: "pages#welcome"
   get "about", to: "pages#about"

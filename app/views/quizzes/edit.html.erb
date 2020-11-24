@@ -1,2 +1,37 @@
-<h1>Quizzes#edit</h1>
-<%= render "form" %>
+<div id="page-content">
+    <div class="container mt-4">
+        <h2>Fragebogen anpassen</h2>
+        <div id="questionAccordion" role="tablist">
+                <% @quiz.questions.each do |question| %>
+                    <div class="panel-heading" role="tab" id="questionHeading<%=question.id%>">
+                        <h4 class="panel-title">
+                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#questionAccordion" href="#questionCollapse<%=question.id%>" aria-expanded="false" aria-controls="questionCollapse<%=question.id%>">
+                            <%=question.question_title%>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="questionCollapse<%=question.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionHeading<%=question.id%>">
+                        <div class="panel-body">
+                            <% @question = question %>
+                            <%= render "questions/form" %>
+                        </div>
+                    </div>
+                    </div>
+                <%end%>
+                </div>
+                <div class="panel-heading" role="tab" id="questionHeadingNew">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#questionAccordion" href="#questionCollapseNew" aria-expanded="false" aria-controls="questionCollapseNew">
+                        Neue Frage
+                        </a>
+                    </h4>
+                </div> 
+                <div id="questionCollapseNew" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionHeadingNew">
+                <div class="panel-body">
+                    <% @question = Question.new(quiz_id: @quiz.id) %>
+                    <%= render "questions/form" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

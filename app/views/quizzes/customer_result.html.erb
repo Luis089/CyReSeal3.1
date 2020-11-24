@@ -1,13 +1,32 @@
-<h1><%=@quiz.title%></h1>
-<h3> Deine Ergebnisse</h3>
-<br>
-<h3>Du hast <%= Result.quiz_score(@partaker, @quiz) %> Punkte erreicht!</h3>
+<div class="container mt-4">
+  <div class= "shadow-sm p-2 mb-1 bg-white rounded">
+    <h1><u><%=@quiz.title%></u></h1>
+    <h3>Du hast insgesamt <span class="text-primary"><%= Result.quiz_score(@attempt, @quiz)%></span> Punkte erreicht!</h3>
 
-<%Result.quiz_results(@partaker, @quiz).each do |result| %>
-<p>
-<h3><%=result.question.question_text %></h3>
-</p>
-<%end%>
+    <ul class="list-inline">
+      <li class="list-inline-item"><h3><small>Legende: </small></h3></li>
+      <li class="list-inline-item"><span class="badge badge-pill badge-success p-2">Gut - Sehr gut</span></li>
+      <li class="list-inline-item"><span class="badge badge-pill badge-warning p-2">Mittelmäßig</span></li>
+      <li class="list-inline-item"><span class="badge badge-pill badge-danger p-2">Ungenügend</span></li>
+    </ul>
+  </div>
+
+    <%Result.quiz_results(@attempt, @quiz).each.with_index do |result, i| %>
+    <div class="shadow-sm p-2 mb-1 bg-white rounded">
+      <h4><%="#{i+1}. "%>Frage: <%=result.question.question_text %></h4>
+      <h4>Anwort: <%=result.answer.answer_text %></h4>
+      <%if result.answer.points > 3 %>
+      <h4>Punkte: <span class="text-success"><%=result.answer.points %></span></h4>
+      <%end%>
+      <%if result.answer.points < 3 %>
+      <h4>Punkte: <span class="text-danger"><%=result.answer.points %></span></h4>
+      <%end%>
+      <%if result.answer.points == 3 %>
+      <h4>Punkte: <span class="text-warning"><%=result.answer.points %></span></h4>
+    <%end%>
+    </div>
+  <%end%>
+</div>
 
 
 

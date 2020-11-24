@@ -11,13 +11,25 @@
             <div class="col-7 mb-3">
                 <div class="card text-center shadow mb-3" id="article-card">
                     <div class="card-header font-italic font-weight-bold" id="card-header">
-                        <%= link_to user.full_name, user_path(user)%><%=" (#{user.role})" %>
+                        <%= link_to user.full_name, user_path(user)%>
+                        <% if user.has_role? :Auditor %>
+                        <span>(Auditor)</span>
+                        <%end%>
+                        <% if user.has_role? :Kunde %>
+                        <span>(Kunde)</span>
+                        <%end%>
+                        <% if user.has_role? :Admin %>
+                        <span>(Admin)</span>
+                        <%end%>
                     </div>
                     <div class="card-body">
                         <%=link_to 'Profil ansehen', user_path(user), class: "btn btn-outline-success"%>
+                        <% if current_user.has_role? :Admin  %> 
+                        <%= link_to "Profil löschen", user, class: "btn btn-outline-danger", method: :delete, data: { confirm: "Bist du dir sicher?" } %>
+                        <%end%>
                     </div>
                     <div class="card-footer text-muted" id="card-footer">
-                        <small>Joined <%= time_ago_in_words(user.created_at) %> ago </small>
+                        <small>Vor <%= time_ago_in_words(user.created_at) %> beigetreten</small>
                     </div>
                 </div>
             </div>

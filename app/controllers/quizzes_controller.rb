@@ -1,5 +1,4 @@
 class QuizzesController < ApplicationController
-  before_action :authenticate_admin!, only: [:destroy]
    
     def index
       @quizzes = Quiz.all
@@ -13,13 +12,12 @@ class QuizzesController < ApplicationController
   
   
     def auditor_show
-      @partakers = @quiz.partakers
-      
+      @attempts = @quiz.attempts
       render 'auditor_show'
     end 
   
     def customer_show
-      @partaker = @quiz.partaker(current_user)
+      @attempt = @quiz.attempt(current_user)
       @user = current_user
       @question = @quiz.next_question(current_user)
       if @question
@@ -28,26 +26,22 @@ class QuizzesController < ApplicationController
         render 'customer_result'
       end
     end
+    
+
     def show
       @quiz = Quiz.find(params[:id])
   
-      if @quiz.auditor?(current_user)
+      if current_user.has_role? :Admin ||  :Auditor
         auditor_show
       else
-        # wenn kein auditor (Fragebogenersteller), zuweisung als customer
-        if !@quiz.customer?(current_user)
-          @quiz.assign_customer_role(current_user)
-        end
         customer_show
       end
-  
     end
-  
-  
+
     def create
       @quiz = Quiz.new(quiz_params)
       @quiz.save
-      @quiz.assign_auditor_role(current_user)
+      @quiz.assign_attempt(current_user)
       redirect_to quiz_path(@quiz)
     end 
   
@@ -68,4 +62,16 @@ class QuizzesController < ApplicationController
     def quiz_params
       params.require(:quiz).permit(:title , :description ,:question_ids)
     end 
+    private
+
+    def is_admin?
+      # check if user is a admin
+      redirect_to welcome_path unless current_user.has_role? :Admin
+    end
+
+    def is_auditor?
+      # check if user is a admin
+      # if not admin then redirect to where ever you want 
+      redirect_to welcome_path  unless current_user.has_role? :Auditor
+    end
 end

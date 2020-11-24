@@ -1,20 +1,33 @@
-<<<<<<< HEAD
-<%= @partaker.user.first_name %> scored <%= Result.quiz_score(@partaker, @quiz) %> Points!
-
-<%Result.quiz_results(@partaker, @quiz).each do |result| %>
-=======
-<%= @identity.user.firm %> scored <%= Result.quiz_score(@identity, @quiz) %> Points!
-
-<%Result.quiz_results(@identity, @quiz).each do |result| %>
->>>>>>> 97aa6089faee5f0297086535b11670971592e8f5
-
-<p>
-<%=result.question.question_text %>
-<%=result.answer.answer_text %>
-</p>
-
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+  <div class="card">
+    <div id="accordion">
+    <% @quiz.attempts.each.with_index do |customer, i| %>
+    <% @attempt = customer %>
+    <% if Result.quiz_score(@attempt, @quiz) > 0%>
+         <div class="card-header-results" id="heading<%="#{i+1}"%>">
+            <button class="btn btn-light btn-lg btn-block active p-1" data-toggle="collapse" data-target="#collapse<%="#{i+1}"%>" aria-expanded="false" aria-controls="collapse<%="#{i+1}"%>">
+            <%=customer.user.full_name%>
+            </button>
+        </div>
+    <div id="collapse<%="#{i+1}"%>" class="collapse" aria-labelledby="heading<%="#{i+1}"%>" data-parent="#accordion">
+    <div class="card-body">
+    <%=customer.user.first_name%> hat <%= Result.quiz_score(@attempt, @quiz) %> Punkte erzielt!<small> (vor <%= time_ago_in_words(@attempt.created_at) %>)</small>
+        <%Result.quiz_results(@attempt, @quiz).each.with_index do |result, i| %>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item font-weight-bold">Frage:<%= " #{i+1}"%><p><%=result.question.question_text %></p></li>
+        <li class="list-group-item">Antwort:<p><%=result.answer.answer_text %></p></li>
+        <li class="list-group-item">Punkte:<p><%=result.answer.points %></p></li>
+    </ul>
 <%end%>
+</div>
+</div>
+<%end%>
+<%end%>
+</div>
+</div>
 
+
+ 
 
 
 
