@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
      end
    
      def answer_params
-       params.require(:answer).permit(:answer_text , :points ,:question_id)
+       params.require(:answer).permit(:answer_text , :points ,:question_id, :point_weighting)
      end 
    end
    

@@ -21,7 +21,7 @@
                 <span>Bewertungen</span>
                 <% end %>
             </li>
-          <% if current_user.has_role? :Admin %> 
+            <% if current_user.has_role? :Admin %>
             <li class="nav-item <%= 'active' if current_page?(new_quiz_path)%>">
                 <%= link_to new_quiz_path, class:"nav-link" do %>
                 <%= fa_icon('plus-circle fw') %>
@@ -32,8 +32,8 @@
                 <%= link_to "#", class:"nav-link disabled" do %>
                 <%= fa_icon('user-lock fw') %>
                 <span>Neuer Fragebogen</span>
-               <% end %>
-            <% end %>
+                <% end %>
+                <% end %>
             </li>
         </ul>
         <% else %>

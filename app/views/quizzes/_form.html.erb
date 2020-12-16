@@ -1,17 +1,11 @@
-
 <%=form_for @quiz do |f|%>
 <div class="form-group">
-<%=f.text_field :title , class: 'form-control', placeholder: 'Namen für Fragebogen angeben'%>
+    <%=f.text_field :title , class: 'form-control', placeholder: 'Namen für Fragebogen angeben'%>
 </div>
 <div class="form-group">
-<%=f.text_field :description , class: 'form-control', placeholder: 'Beschreibung des Fragebogens'%>
+    <%=f.text_field :description , class: 'form-control', placeholder: 'Beschreibung des Fragebogens'%>
 </div>
 <div class="form-group">
-<%=f.submit 'Speichern', class: 'btn btn-info' %>
+    <%=f.submit 'Speichern', class: 'btn btn-info' %>
 </div>
 <%end%>
-
-
-
-
-

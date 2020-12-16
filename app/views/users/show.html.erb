@@ -20,7 +20,7 @@
             <% else %>
             <%= link_to fa_icon('angle-left fw',text:"Zur Übersicht"), users_path, class:"btn btn-info mt-2"%>
             <% end %>
-            <% if current_user.has_role? :Admin %> 
+            <% if current_user.has_role? :Admin %>
             <%= link_to "Profil löschen", @user, class: "btn btn-outline-danger mt-2", method: :delete, data: { confirm: "Bist du dir sicher?" } %>
             <%end%>
         </div>

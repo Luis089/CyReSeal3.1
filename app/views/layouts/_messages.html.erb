@@ -1,23 +1,23 @@
 <div class="container mt-4">
 
-<%if flash.alert%>
-<% flash.each do |name, msg| %>
-<div class="alert alert-danger alert-dismissible fade show mb-3" attempt="alert">
-    <%=msg%>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<%end%>
+    <%if flash.alert%>
+    <% flash.each do |name, msg| %>
+    <div class="alert alert-danger alert-dismissible fade show mb-3" attempt="alert">
+        <%=msg%>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <%end%>
 
-<% else%>
-<% flash.each do |name, msg| %>
-<div class="alert alert-success alert-dismissible fade show mb-3" attempt="alert">
-    <%=msg%>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<%end%>
-<%end%>
+    <% else%>
+    <% flash.each do |name, msg| %>
+    <div class="alert alert-success alert-dismissible fade show mb-3" attempt="alert">
+        <%=msg%>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <%end%>
+    <%end%>
 </div>

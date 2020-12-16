@@ -1,12 +1,11 @@
 <div id="page-content">
-    <div class="container mt-4">
-        <div class="shadow-sm p-3 mb-5 bg-white rounded">
-          <h1><%=@quiz.title%></h1>
-          <%= link_to fa_icon('edit fw',text:"Fragebogen anpassen"), edit_quiz_path, class:"btn btn-info mt-2"%>
-        </div>
-          <h3>Ergebnisse anzeigen</h3>
-          <%= render 'stats' %>
+  <div class="container mt-4">
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
+      <h1><%=@quiz.title%></h1>
+      <%= link_to fa_icon('edit fw',text:"Fragebogen anpassen"), edit_quiz_path,
+      class:"btn btn-info mt-2"%>
     </div>
+    <h3>Ergebnisse anzeigen</h3>
+    <%= render 'stats' %>
+  </div>
 </div>
-
-

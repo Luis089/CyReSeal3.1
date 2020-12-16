@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body">
                         <%=link_to 'Profil ansehen', user_path(user), class: "btn btn-outline-success"%>
-                        <% if current_user.has_role? :Admin  %> 
+                        <% if current_user.has_role? :Admin  %>
                         <%= link_to "Profil löschen", user, class: "btn btn-outline-danger", method: :delete, data: { confirm: "Bist du dir sicher?" } %>
                         <%end%>
                     </div>

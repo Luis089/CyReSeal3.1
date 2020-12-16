@@ -39,6 +39,10 @@ class Quiz < ApplicationRecord
   end
 
 
+  def self.all_user_quizzes(user)
+    # all quizzes the user partizipated
+    self.where(attempts: user.attempts)
+  end
 
 def next_question(user)
   # finds the first question that is unanswered / nil if none found
@@ -50,10 +54,7 @@ def next_question(user)
     nil
   end
 end
-
-def self.all_user_quizzes(user)
-  # all quizzes the user partizipated
-  self.where(attempts: user.attempts)
 end
 
-end
+
+
