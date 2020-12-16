@@ -66,12 +66,12 @@ class QuizzesController < ApplicationController
 
     def is_admin?
       # check if user is a admin
-      redirect_to welcome_path unless current_user.has_role? :Admin
+      redirect_to root_path unless current_user.has_role? :Admin
     end
 
     def is_auditor?
       # check if user is a admin
       # if not admin then redirect to where ever you want 
-      redirect_to welcome_path  unless current_user.has_role? :Auditor
+      redirect_to root_path  unless current_user.has_role? :Auditor
     end
 end
