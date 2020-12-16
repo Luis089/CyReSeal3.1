@@ -5,4 +5,10 @@ class Answer < ApplicationRecord
 
     validates :points, presence: true
     validates :answer_text, presence: true, :length => {:minimum => 1}
+
+
+    def method_name
+        
+    end
+
 end

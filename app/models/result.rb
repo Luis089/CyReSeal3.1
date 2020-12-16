@@ -20,5 +20,4 @@ class Result < ApplicationRecord
       result.answer.points
     end
   end
-
 end
