@@ -1,3 +1,4 @@
+<% if !current_user %>
 <header class="landing-page">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
@@ -7,3 +8,6 @@
         </div>
     </div>
 </header>
+<% else %>
+<%= render 'welcome' %>
+<%end%>

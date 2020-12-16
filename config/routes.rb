@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :results 
   devise_for :users, controllers: { registrations: 'registrations' }
   root "pages#landing"
-  get "welcome", to: "pages#welcome"
   get "about", to: "pages#about"
   get "quizzes", to: "quizzes#index"
   get "users", to: "users#index"
