@@ -25,5 +25,6 @@ class ResultsController < ApplicationController
     def result_params
       params.require(:result).permit( :attempt_id, :answer_id, :question_id)
     end
+
   end
   

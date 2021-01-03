@@ -34,6 +34,6 @@
         end 
       
         def question_params
-          params.require(:question).permit(:question_title, :question_text, :type , :quiz_id, :max_points)
+          params.require(:question).permit(:question_title, :question_text, :quiz_id, :max_points)
         end 
       end

@@ -31,21 +31,23 @@ class QuizzesController < ApplicationController
     def show
       @quiz = Quiz.find(params[:id])
   
-      if current_user.has_role? :Admin ||  :Auditor
+      if current_user.has_role? :Admin || :Auditor
         auditor_show
       else
+        if !@quiz.customer?(current_user)
+          @quiz.assign_attempt(current_user)
+        end
         customer_show
       end
+  
     end
 
     def create
       @quiz = Quiz.new(quiz_params)
       @quiz.save
-      @quiz.assign_attempt(current_user)
+      # @quiz.assign_attempt(current_user)
       redirect_to quiz_path(@quiz)
     end 
-  
-  
   
     def edit
       @quiz = Quiz.find(params[:id])
