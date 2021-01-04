@@ -7,6 +7,7 @@
             <div class="card-header-results" id="heading<%="#{i+1}"%>">
                 <button class="btn btn-light btn-lg btn-block active p-1" data-toggle="collapse"
                     data-target="#collapse<%="#{i+1}"%>" aria-expanded="false" aria-controls="collapse<%="#{i+1}"%>">
+                    <%puts customer.user.first_name.inspect%>
                     <%=customer.user.full_name%>
                 </button>
             </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_03_125128) do
+ActiveRecord::Schema.define(version: 2021_01_04_001153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2021_01_03_125128) do
     t.integer "question_id"
     t.integer "answer_id"
     t.integer "attempt_id"
-    t.integer "user_id"
   end
 
   create_table "roles", force: :cascade do |t|

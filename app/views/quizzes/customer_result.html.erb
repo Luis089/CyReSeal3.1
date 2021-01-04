@@ -30,7 +30,7 @@
     <%end%> <%if result.answer.points < 3 %>
     <h5>Punkte: <span class="text-danger"><%=result.answer.points %></span></h5>
     <h5>Gewichtung: <%= result.answer.point_weighting%></h5>
-    <h5>Gewichtete Punkte: <span><%=@weighted_result =result.answer.points*result.answer.point_weighting%></span></h5>
+    <h5>Gewichtete Punkte: <span><%=@weighted_result = result.answer.points * result.answer.point_weighting%></span></h5>
     <%end%> <%if result.answer.points == 3 %>
     <h5>Punkte: <span class="text-warning"><%=result.answer.points %></span></h5>
     <h5>Gewichtung: <%= result.answer.point_weighting%></h5>

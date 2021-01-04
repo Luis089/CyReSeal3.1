@@ -10,7 +10,4 @@ class AttemptsController < ApplicationController
     def show
         @attempt = Attempt.find(params[:id])
     end
-    
-    def edit
-    end
 end

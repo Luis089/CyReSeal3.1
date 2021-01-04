@@ -1,5 +1,4 @@
 class Quiz < ApplicationRecord
-    resourcify
     has_many :questions
     has_many :attempts
     has_many :users , through: :attempts
