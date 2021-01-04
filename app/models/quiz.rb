@@ -1,6 +1,6 @@
 class Quiz < ApplicationRecord
-    has_many :questions
-    has_many :attempts
+    has_many :questions, dependent: :destroy
+    has_many :attempts, dependent: :destroy
     has_many :users , through: :attempts
 
     validates :title, presence: true, :length => {:minimum => 1}

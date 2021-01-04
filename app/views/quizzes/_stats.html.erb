@@ -7,34 +7,57 @@
             <div class="card-header-results" id="heading<%="#{i+1}"%>">
                 <button class="btn btn-light btn-lg btn-block active p-1" data-toggle="collapse"
                     data-target="#collapse<%="#{i+1}"%>" aria-expanded="false" aria-controls="collapse<%="#{i+1}"%>">
-                    <%puts customer.user.first_name.inspect%>
-                    <%=customer.user.full_name%>
+                    <%= customer.user.full_name%>
                 </button>
             </div>
             <div id="collapse<%="#{i+1}"%>" class="collapse" aria-labelledby="heading<%="#{i+1}"%>"
                 data-parent="#accordion">
                 <div class="card-body">
-                    <%=customer.user.first_name%> hat <%= Result.quiz_score(@attempt, @quiz) %> Punkte erzielt! (ungewichtet)
-                    <p><%=customer.user.first_name%> hat <%= @weighted_result_sum %> Punkte erzielt! (gewichtet)</p>
-                    <small>(vor <%= time_ago_in_words(@attempt.created_at) %>)</small>
+                    <p><small>(vor <%= time_ago_in_words(@attempt.created_at) %>)</small></p>
                     <%@weighted_result_sum = 0%>
+                    <%@weighted_result_count = 0%>
                     <%Result.quiz_results(@attempt, @quiz).each.with_index do |result, i| %>
+                        <span class="font-weight-bold">Frage:<%= " #{i+1}"%>
+                        </span>
+                        <p><%=result.question.question_text %></p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item font-weight-bold">Frage:<%= " #{i+1}"%><p>
-                                <%=result.question.question_text %></p>
-                        </li>
                         <li class="list-group-item">Antwort:<p><%=result.answer.answer_text %></p>
                         </li>
                         <li class="list-group-item">Punkte:<p><%=result.answer.points %></p>
                         </li>
-                        <li class="list-group-item">Gewichtete Punkte:<p><%= @weighted_result= result.answer.point_weighting*result.answer.points %></p>
+                        <li class="list-group-item">Gewichtete Punkte:<p><%= @weighted_result = result.answer.point_weighting*result.answer.points %></p>
                         </li>
-                        <%@weighted_result_sum = @weighted_result_sum + @weighted_result  %>
+                        <%@weighted_result_sum = (@weighted_result_sum+@weighted_result)  %>
+                        <%@weighted_result_count = @weighted_result_count + result.answer.point_weighting %>
+                        <%@weighted_result_sum_divided_by_i = @weighted_result_sum / @weighted_result_count %>
                     </ul>
                     <%end%>
+                    <p class=""><%=customer.user.first_name%> hat <span class="font-weight-bold"><%= Result.quiz_score(@attempt, @quiz) %></span> Punkte erzielt! (ungewichtet)</p>
+                    <p class=""><%=customer.user.first_name%> hat <span class="font-weight-bold"><%= @weighted_result_sum %></span> Punkte erzielt! (gewichtet)</p>
+                    <%if @weighted_result_sum_divided_by_i > 3 %>
+                   <p> Durschnittliche Punktzahl, gewichtet: <span class="font-weight-bold text-success"> <%=number_to_currency(@weighted_result_sum_divided_by_i, unit:"")%></span></p>
+                    <%end%> <%if @weighted_result_sum_divided_by_i < 3 %>
+                    <p> Durschnittliche Punktzahl, gewichtet:<span class="font-weight-bold text-danger"> <%=number_to_currency(@weighted_result_sum_divided_by_i, unit:"")%></span></p>
+                    <%end%> <%if @weighted_result_sum_divided_by_i == 3 %>
+                    <p>Durschnittliche Punktzahl, gewichtet:<span class="font-weight-bold text-warning"> <%=number_to_currency(@weighted_result_sum_divided_by_i, unit:"")%></span></p>
+                    <%end%>
+                <small><ul class="list-inline">
+                    <li class="list-inline-item">
+                        <span> Legende: </span>
+                     </li>
+                    <li class="list-inline-item">
+                     <span class="badge badge-pill badge-success p-2">Gut - Sehr gut</span>
+                    </li>
+                     <li class="list-inline-item">
+                      <span class="badge badge-pill badge-warning p-2">Mittelmäßig</span>
+                    </li>
+                    <li class="list-inline-item">
+                    <span class="badge badge-pill badge-danger p-2">Ungenügend</span>
+                    </li>
+                </ul></small>
                 </div>
             </div>
             <%end%>
-            <%end%>
-        </div>
+        <%end%>
     </div>
+</div>

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     rolify
     after_create :assign_default_role
-    has_many :attempts
+    has_many :attempts, dependent: :destroy
     has_many :quizzes, through: :attempts
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable

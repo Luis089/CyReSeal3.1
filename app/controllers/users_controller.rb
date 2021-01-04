@@ -23,4 +23,11 @@ class UsersController < ApplicationController
         redirect_to root_path, notice: "Account wurde gelöscht."
     end
   end
+  
+  private
+
+  def is_admin?
+      # check if user is a admin
+      redirect_to root_path unless current_user.has_role? :Admin
+    end
 end

@@ -1,7 +1,7 @@
 class Result < ApplicationRecord
     belongs_to :answer
     belongs_to :question
-    belongs_to :attempt
+    belongs_to :attempt, dependent: :destroy
 
   def self.attempt_results(attempt)
     # give all results scored at any quiz
