@@ -29,5 +29,5 @@ class UsersController < ApplicationController
   def is_admin?
       # check if user is a admin
       redirect_to root_path unless current_user.has_role? :Admin
-    end
+  end
 end
