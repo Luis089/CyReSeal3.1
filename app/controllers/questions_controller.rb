@@ -18,7 +18,7 @@ end
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to quizzes_path
+      redirect_to request.referrer
     else 
        flash[:errors] = @question.errors.full_messages
       redirect_to request.referrer

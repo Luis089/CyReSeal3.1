@@ -1,12 +1,19 @@
 <div class="container mt-4">
-      <%@quizzes.each do |quiz|%>
-      <div class="row">
-        <div class="col-6">
-            <div class="card card-header results-block mb-3">
-              <h3><%= link_to quiz.title,  quiz_path(quiz)%></h3>
-              <p><%= quiz.description %></p>
+   <%@quizzes.each do |quiz|%>
+   <div class="row">
+      <div class="col-6">
+         <div class="card shadow mb-3">
+            <div class="card-header">
+               <h4><%= link_to quiz.title,  quiz_path(quiz)%></h4>
             </div>
-        </div>
+            <div class="card-body">
+               <p><%= quiz.description %></p>
+            </div>
+            <div class="card-footer text-muted">
+               <small>Erstellt am <%= quiz.created_at.strftime("%d.%m.%Y") %></small>
+            </div>
+         </div>
       </div>
-<%end%>
+   </div>
+   <%end%>
 </div>

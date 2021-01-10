@@ -19,7 +19,7 @@
    <div class="panel-heading" role="tab" id="question<%=@question.id%>Heading<%=answer.id%>">
       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#question<%=@question.id%>Accordion"
          href="#question<%=@question.id%>Collapse<%=answer.id%>" aria-expanded="false"
-         aria-controls="question<%=@question.id%>Collapse<%=answer.id%>">
+         aria-controls="question<%=@question.id%>Collapse<%=answer.id%>"  id="a-answers">
       Antwort: <%="#{i+1}" %>
       </a>
    </div>
@@ -35,7 +35,7 @@
       <h5 class="panel-title mb-3">
          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#question<%=@question.id%>Accordion"
             href="#question<%=@question.id%>CollapseNew" aria-expanded="false"
-            aria-controls="question<%=@question.id%>CollapseNew">
+            aria-controls="question<%=@question.id%>CollapseNew" id="a-answers">
          Antwort hinzufügen
          </a>
       </h5>
