@@ -4,6 +4,8 @@
       <h1><%=@quiz.title%></h1>
       <%= link_to fa_icon('edit fw',text:"Fragebogen anpassen"), edit_quiz_path,
       class:"btn btn-info mt-2"%>
+      <%= link_to fa_icon('trash fw',text:"Fragebogen löschen"), destroy_quiz_path,
+      class:"btn btn-danger mt-2",  method: :delete, data: { confirm: "Bist du dir sicher?" }%>
     </div>
     <h3 class="p-3">Ergebnisse anzeigen</h3>
     <%= render 'stats' %>

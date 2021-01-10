@@ -7,7 +7,7 @@ class QuizzesController < ApplicationController
   
   def new
     @questions = Question.all
-     @quiz = Quiz.new
+    @quiz = Quiz.new
   end
   
   
@@ -30,7 +30,6 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
-  
     if current_user.has_role? :Admin || :Auditor
         auditor_show
     else
@@ -59,6 +58,13 @@ class QuizzesController < ApplicationController
       redirect_to new_quiz_path
     end 
   end 
+
+   def destroy
+    @quiz = Quiz.find(params[:id])
+    if @quiz.destroy
+         redirect_to root_path, notice: "Quiz wurde gelöscht."
+    end
+  end
   
   def quiz_params
     params.require(:quiz).permit(:title , :description ,:question_ids)

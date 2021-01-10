@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get "users", to: "users#index"
   get '/users/:id', to: 'users#show', as: 'user'
   delete "/users/:id", to:  'users#destroy', as: 'delete_user'
+  delete "/quizzes/:id", to:  'quizzes#destroy', as: 'destroy_quiz'
+  delete "/questions/:id", to:  'questions#destroy', as: 'destroy_question'
 end

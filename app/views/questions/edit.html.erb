@@ -1,2 +1,5 @@
-<h1>Edit Question </h1>
-<%=render "form"%>
+<div class="container mt-4">
+  <div class="shadow-sm p-2 mb-1 bg-white rounded">
+    <h1>Frage bearbeiten</h1>
+    <%=render "form"%>
+    <%= link_to "Frage löschen", @question, class: "btn btn-outline-danger mt-2", method: :delete, data: { confirm: "Bist du dir sicher?" } %>
