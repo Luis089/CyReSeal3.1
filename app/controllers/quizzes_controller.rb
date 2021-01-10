@@ -2,7 +2,7 @@ class QuizzesController < ApplicationController
   before_action :is_admin?, only: [:new, :edit, :destroy]
    
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.paginate(page: params[:page], per_page: 3)
   end
   
   
