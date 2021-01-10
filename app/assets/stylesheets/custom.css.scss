@@ -5,14 +5,15 @@ $enable-shadows: true;
 
 /* Page content styling */
 
-html, body{
+html,
+body {
 
   height: auto;
   margin-bottom: 60px;
 
 }
 
-.landing-page{
+.landing-page {
   position: relative;
   width: 100%;
   height: auto;
@@ -23,13 +24,15 @@ html, body{
   background-attachment: scroll;
   background-size: cover;
 }
-.landing-page h1{
+
+.landing-page h1 {
   font-size: 3rem;
   line-height: 3rem;
   letter-spacing: 0.5rem;
   background: #454d55;
   background-clip: text;
 }
+
 .landing-page h2 {
   background: #454d55;
   background-clip: text;
@@ -43,82 +46,97 @@ html, body{
   border-bottom: grey;
 }
 
-.nav-link, .footer-link, #copyright-text{
-    color:  #454d55;
-    text-decoration: none;
-}
-.nav-link:hover, .nav-item:hover, .footer-link:hover, #copyright-text:hover {
-    color: #323233;
-    text-decoration: none;
+.nav-link,
+.footer-link,
+#copyright-text {
+  color: #454d55;
+  text-decoration: none;
 }
 
-.navbar-brand, .navbar-brand:hover {
-font-size: 2rem;
-color: #323233;
+.nav-link:hover,
+.nav-item:hover,
+.footer-link:hover,
+#copyright-text:hover {
+  color: #323233;
+  text-decoration: none;
+}
+
+.navbar-brand,
+.navbar-brand:hover {
+  font-size: 2rem;
+  color: #323233;
 }
 
 
 //custom
 
-.loggout-button{
-    margin-right: 10px;
+.loggout-button {
+  margin-right: 10px;
 }
 
-.user-name{
-    margin-top: 3.5%;
-    padding-right: 10px;
-    color: #454d55;
+.user-name {
+  margin-top: 3.5%;
+  padding-right: 10px;
+  color: #454d55;
 }
+
 //card-styling
 
-.card-header{
-    background-color: #dddddd;
-}
-.card-header a{
-     color: #454d55;
-     text-decoration: none;
-}
-.card-header a:hover{
-     color: #aaaaaa;
-     text-decoration: none;
+.card-header {
+  background-color: #dddddd;
 }
 
-.card-footer{
-    background-color: #ffffffad;
-    color: #454d55;
+.card-header a {
+  color: #454d55;
+  text-decoration: none;
+}
+
+.card-header a:hover {
+  color: #aaaaaa;
+  text-decoration: none;
+}
+
+.card-footer {
+  background-color: #ffffffad;
+  color: #454d55;
 }
 
 //headlines
 
-h1{
-   color: #2e363d;
-   font-size: 2em;
+h1 {
+  color: #2e363d;
+  font-size: 2em;
 }
-h2{
+
+h2 {
   color: #454d55;
 }
 
-h3{
-    color: #454d55;
+h3 {
+  color: #454d55;
 }
 
-h5{
-    color: #454d55;
+h4 {
+  color: #454d55;
+}
+
+h5 {
+  color: #454d55;
 }
 
 //footer
 
 
-#sticky-footer{
-    width: 100%;
-    height: 50px;
-    margin-top: 20px;
-    position: fixed;
-    clear: both;
-    bottom: 0;
+#sticky-footer {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  position: fixed;
+  clear: both;
+  bottom: 0;
 }
 
-#copyright-text{
+#copyright-text {
   margin-top: 12px;
 }
 
@@ -138,38 +156,61 @@ footer ul li {
 .flickr_pagination {
   text-align: center;
   padding: 0.3em;
-  cursor: default; }
-  .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
-    padding: 0.2em 0.5em; 
-    border-radius: 5px;
-  }
-  .flickr_pagination .disabled {
-    color: rgb(110, 117, 117) }
-  .flickr_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    color: rgb(221, 215, 215) }
-  .flickr_pagination a {
-    border: 1px solid rgb(167, 165, 165);
-    color: rgb(40, 133, 133);
-    text-decoration: none; }
-    .flickr_pagination a:hover, .flickr_pagination a:focus {
-      border-color: whitesmoke;
-      background: rgb(49, 82, 82);
-      color: white; }
-  .flickr_pagination .page_info {
-    color: #aaaaaa;
-    padding-top: 0.8em; }
-  .flickr_pagination .previous_page, .flickr_pagination .next_page {
-    border-width: 2px; }
-  .flickr_pagination .previous_page {
-    margin-right: 1em; }
-  .flickr_pagination .next_page {
-    margin-left: 1em; }
+  cursor: default;
+}
+
+.flickr_pagination a,
+.flickr_pagination span,
+.flickr_pagination em {
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
+
+.flickr_pagination .disabled {
+  color: rgb(110, 117, 117)
+}
+
+.flickr_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  color: rgb(221, 215, 215)
+}
+
+.flickr_pagination a {
+  border: 1px solid rgb(167, 165, 165);
+  color: rgb(40, 133, 133);
+  text-decoration: none;
+}
+
+.flickr_pagination a:hover,
+.flickr_pagination a:focus {
+  border-color: whitesmoke;
+  background: rgb(49, 82, 82);
+  color: white;
+}
+
+.flickr_pagination .page_info {
+  color: #aaaaaa;
+  padding-top: 0.8em;
+}
+
+.flickr_pagination .previous_page,
+.flickr_pagination .next_page {
+  border-width: 2px;
+}
+
+.flickr_pagination .previous_page {
+  margin-right: 1em;
+}
+
+.flickr_pagination .next_page {
+  margin-left: 1em;
+}
 
 .zoom {
   transition: transform .1s;
 }
+
 .zoom:hover {
   transform: scale(1.2);
 }

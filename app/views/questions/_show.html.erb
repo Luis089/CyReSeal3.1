@@ -1,23 +1,19 @@
-
 <h2><%=@question.question_title%></h2>
 <h3><%=@question.question_text%></h3>
-
 </div>
-
 <br/>
-
-  <%=form_for Result.new(attempt: @quiz.attempt(@current_user), question: @question) do |f|%>
-    <%=f.collection_radio_buttons(:answer_id, @question.answers, :id, :answer_text) do |b|%>
-        <%=f.hidden_field :attempt_id%>
-        <%=f.hidden_field :question_id%>
+<%=form_for Result.new(attempt: @quiz.attempt(@current_user), question: @question) do |f|%>
+<%=f.collection_radio_buttons(:answer_id, @question.answers, :id, :answer_text) do |b|%>
+<%=f.hidden_field :attempt_id%>
+<%=f.hidden_field :question_id%>
 <ul class="list-group">
-    <div>
-        <li class="list-group-item">
-            <%= b.radio_button %>
-            <%= b.label %>
-        </li>
-    </div>
+   <div>
+      <li class="list-group-item">
+         <%= b.radio_button %>
+         <%= b.label %>
+      </li>
+   </div>
 </ul>
 <% end %> 
-  <%=f.submit 'Next', class: 'btn btn-info mt-2'%>  
+<%=f.submit 'Next', class: 'btn btn-info mt-2'%>  
 <% end %>

@@ -1,5 +1,18 @@
 <div class="container mt-4">
-  <div class="shadow-sm p-2 mb-1 bg-white rounded">
-    <h1>Frage bearbeiten</h1>
-    <%=render "form"%>
-    <%= link_to "Frage löschen", @question, class: "btn btn-outline-danger mt-2", method: :delete, data: { confirm: "Bist du dir sicher?" } %>
+<div class="shadow-sm p-2 mb-1 bg-white rounded">
+<div class="row justify-content mb-3">
+   <div class="col-12 mb-3">
+      <div class="card shadow mb-3">
+         <div class="card-header font-weight-bold" id="card-header">
+            <h1>Frage bearbeiten</h1>
+         </div>
+         <div class="card-body">
+            <%=render "form"%>
+         </div>
+         <div class="card-footer">
+            <%= link_to "Frage löschen", @question, class: "btn btn-outline-danger mt-2", method: :delete, data: { confirm: "Bist du dir sicher?" } %> <br>
+            <%= link_to "Zurück", :back, class: "btn btn-outline-success mt-2" %> 
+         </div>
+      </div>
+   </div>
+</div>

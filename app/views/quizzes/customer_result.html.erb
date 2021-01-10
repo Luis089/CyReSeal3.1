@@ -1,49 +1,47 @@
 <div class="container mt-4">
-  <div class="shadow-sm p-2 mb-1 bg-white rounded">
-    <h1><u><%=@quiz.title%></u></h1>
-    
-    <ul class="list-inline">
-      <li class="list-inline-item">
-        <h3><small>Legende: </small></h3>
-      </li>
-      <li class="list-inline-item">
-        <span class="badge badge-pill badge-success p-2">Gut - Sehr gut</span>
-      </li>
-      <li class="list-inline-item">
-        <span class="badge badge-pill badge-warning p-2">Mittelmäßig</span>
-      </li>
-      <li class="list-inline-item">
-        <span class="badge badge-pill badge-danger p-2">Ungenügend</span>
-      </li>
-    </ul>
-  </div>
-  <%@weighted_result_sum = 0%>
-  <%@weighted_result_count = 0%>
-  <%Result.quiz_results(@attempt, @quiz).each.with_index do |result, i| %>
-  <div class="shadow-sm p-2 mb-1 bg-white rounded">
-    <h4><%="#{i+1}. "%>Frage: <%=result.question.question_text %></h4>
-    <h4>Anwort: <%=result.answer.answer_text %></h4>
-    <%if result.answer.points > 3 %>
-    <h5>Punkte: <span class="text-success"><%=result.answer.points %></span></h5>
-    <h5>Gewichtung: <%= result.answer.point_weighting%></h5>
-    <h5> Gewichtete Punkte: <span><%=@weighted_result = result.answer.points*result.answer.point_weighting %></span></h5>
-    <%end%> <%if result.answer.points < 3 %>
-    <h5>Punkte: <span class="text-danger"><%=result.answer.points %></span></h5>
-    <h5>Gewichtung: <%= result.answer.point_weighting%></h5>
-    <h5>Gewichtete Punkte: <span><%=@weighted_result = result.answer.points * result.answer.point_weighting%></span></h5>
-    <%end%> <%if result.answer.points == 3 %>
-    <h5>Punkte: <span class="text-warning"><%=result.answer.points %></span></h5>
-    <h5>Gewichtung: <%= result.answer.point_weighting%></h5>
-    <h5>Gewichtete Punkte: <span><%=@weighted_result = result.answer.points*result.answer.point_weighting%></span></h5>
-    <%end%>
-    <%@weighted_result_count = @weighted_result_count + result.answer.point_weighting %>
-    <%@weighted_result_sum = @weighted_result_sum + @weighted_result  %>
-    <%@weighted_result_sum_divided_by_i = @weighted_result_sum / @weighted_result_count %>
-  </div>
-  <%end%>
-    <h5 class="ml-2">Gewichtungen insgesamt: <%= @weighted_result_count%></h5>
-    <h5 class="ml-2">Gesamtpunktzahl, ungewichtet: <%= Result.quiz_score(@attempt, @quiz).to_f%></h5>
-    
-    <h5 class="ml-2">Gesamtpunktzahl, gewichtet: <%=@weighted_result_sum_final= @weighted_result_sum%></h5>
-    <h5 class="ml-2">Durschnittliche Punktzahl, gewichtet: <%=number_to_currency(@weighted_result_sum_divided_by_i, unit:"")%></h5>
+   <div class="shadow-sm p-2 mb-1 bg-white rounded">
+      <h1><u><%=@quiz.title%></u></h1>
+      <ul class="list-inline">
+         <li class="list-inline-item">
+            <h3><small>Legende: </small></h3>
+         </li>
+         <li class="list-inline-item">
+            <span class="badge badge-pill badge-success p-2">Gut - Sehr gut</span>
+         </li>
+         <li class="list-inline-item">
+            <span class="badge badge-pill badge-warning p-2">Mittelmäßig</span>
+         </li>
+         <li class="list-inline-item">
+            <span class="badge badge-pill badge-danger p-2">Ungenügend</span>
+         </li>
+      </ul>
+   </div>
+   <%@weighted_result_sum = 0%>
+   <%@weighted_result_count = 0%>
+   <%Result.quiz_results(@attempt, @quiz).each.with_index do |result, i| %>
+   <div class="shadow-sm p-2 mb-1 bg-white rounded">
+      <h4><%="#{i+1}. "%>Frage: <%=result.question.question_text %></h4>
+      <h4>Anwort: <%=result.answer.answer_text %></h4>
+      <%if result.answer.points > 3 %>
+      <h5>Punkte: <span class="text-success"><%=result.answer.points %></span></h5>
+      <h5>Gewichtung: <%= result.answer.point_weighting%></h5>
+      <h5> Gewichtete Punkte: <span><%=@weighted_result = result.answer.points*result.answer.point_weighting %></span></h5>
+      <%end%> <%if result.answer.points < 3 %>
+      <h5>Punkte: <span class="text-danger"><%=result.answer.points %></span></h5>
+      <h5>Gewichtung: <%= result.answer.point_weighting%></h5>
+      <h5>Gewichtete Punkte: <span><%=@weighted_result = result.answer.points * result.answer.point_weighting%></span></h5>
+      <%end%> <%if result.answer.points == 3 %>
+      <h5>Punkte: <span class="text-warning"><%=result.answer.points %></span></h5>
+      <h5>Gewichtung: <%= result.answer.point_weighting%></h5>
+      <h5>Gewichtete Punkte: <span><%=@weighted_result = result.answer.points*result.answer.point_weighting%></span></h5>
+      <%end%>
+      <%@weighted_result_count = @weighted_result_count + result.answer.point_weighting %>
+      <%@weighted_result_sum = @weighted_result_sum + @weighted_result  %>
+      <%@weighted_result_sum_divided_by_i = @weighted_result_sum / @weighted_result_count %>
+   </div>
+   <%end%>
+   <h5 class="ml-2">Gewichtungen insgesamt: <%= @weighted_result_count%></h5>
+   <h5 class="ml-2">Gesamtpunktzahl, ungewichtet: <%= Result.quiz_score(@attempt, @quiz).to_f%></h5>
+   <h5 class="ml-2">Gesamtpunktzahl, gewichtet: <%=@weighted_result_sum_final= @weighted_result_sum%></h5>
+   <h5 class="ml-2">Durschnittliche Punktzahl, gewichtet: <%=number_to_currency(@weighted_result_sum_divided_by_i, unit:"")%></h5>
 </div>

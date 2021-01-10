@@ -1,29 +1,36 @@
 <div id="page-content">
-    <div class="container mt-4">
-        <h2>Fragebogen anpassen</h2>
-         <div class="panel-heading" role="tab" id="questionHeadingNew">
-                    <h4 class="panel-title">
-                        <%= link_to fa_icon('plus-circle fw',text:"Neue Frage"), '#questionCollapseNew', role: :button, class:"btn btn-success mt-2",
-                        data: { parent: '#questionAccordion', toggle: :collapse },
-                        aria: { controls: :questionCollapseNew, expanded: false }
-                       %> 
-                    </h4>
-                </div>
-                <div id="questionCollapseNew" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionHeadingNew">
-                <div class="panel-body">
-                    <% @question = Question.new(quiz_id: @quiz.id) %>
-                    <%= render "questions/form" %>
-                </div>
-                 </div>
-                 </div>
-                <% @quiz.questions.each.with_index do |question, i| %>
-                <h4>
-                <%= link_to fa_icon('edit fw',text:  "#{i+1}. Frage: #{question.question_title}"), edit_quiz_question_path(@quiz, question), class:"btn btn-info mt-2"%>
-                </h4>
-                <% end %>
-                </div>
+   <div class="container mt-4">
+      <h2>Fragebogen anpassen</h2>
+      <div class="panel-heading" role="tab" id="questionHeadingNew">
+         <h4 class="panel-title">
+            <%= link_to fa_icon('plus-circle fw',text:"Neue Frage"), '#questionCollapseNew', role: :button, class:"btn btn-success mt-2",
+               data: { parent: '#questionAccordion', toggle: :collapse },
+               aria: { controls: :questionCollapseNew, expanded: false }
+               %> 
+         </h4>
+      </div>
+      <div id="questionCollapseNew" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionHeadingNew">
+         <div class="panel-body">
+            <% @question = Question.new(quiz_id: @quiz.id) %>
+            <%= render "questions/form" %>
+         </div>
+      </div>
+      <% @quiz.questions.each.with_index do |question, i| %>
+      <div class="row justify-content">
+         <div class="col-9">
+            <div class="card shadow mb-3">
+               <div class="card-header font-weight-bold" id="card-header">
+                  <h5><%= "#{i+1}. Frage:"%></h5>
+               </div>
+               <div class="card-body">
+                  <h5><%= "#{question.question_title}"%></h5>
+               </div>
+               <div class="card-footer">
+                  <small><%= link_to fa_icon('edit fw',text:  "bearbeiten"), edit_quiz_question_path(@quiz, question), class:"btn btn-info"%></small>
+               </div>
             </div>
-        </div>
-    </div>
+         </div>
+      </div>
+      <% end %>
+   </div>
 </div>
-
