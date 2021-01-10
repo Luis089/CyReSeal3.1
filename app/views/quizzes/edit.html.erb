@@ -1,37 +1,29 @@
 <div id="page-content">
     <div class="container mt-4">
         <h2>Fragebogen anpassen</h2>
-        <div id="questionAccordion" role="tablist">
-                <% @quiz.questions.each do |question| %>
-                    <div class="panel-heading" role="tab" id="questionHeading<%=question.id%>">
-                        <h4 class="panel-title">
-                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#questionAccordion" href="#questionCollapse<%=question.id%>" aria-expanded="false" aria-controls="questionCollapse<%=question.id%>">
-                            <%=question.question_title%>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="questionCollapse<%=question.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionHeading<%=question.id%>">
-                        <div class="panel-body">
-                            <% @question = question %>
-                            <%= render "questions/form" %>
-                        </div>
-                    </div>
-                    </div>
-                <%end%>
-                </div>
-                <div class="panel-heading" role="tab" id="questionHeadingNew">
+         <div class="panel-heading" role="tab" id="questionHeadingNew">
                     <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#questionAccordion" href="#questionCollapseNew" aria-expanded="false" aria-controls="questionCollapseNew">
-                        Neue Frage
-                        </a>
+                        <%= link_to fa_icon('plus-circle fw',text:"Neue Frage"), '#questionCollapseNew', role: :button, class:"btn btn-success mt-2",
+                        data: { parent: '#questionAccordion', toggle: :collapse },
+                        aria: { controls: :questionCollapseNew, expanded: false }
+                       %> 
                     </h4>
-                </div> 
+                </div>
                 <div id="questionCollapseNew" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionHeadingNew">
                 <div class="panel-body">
                     <% @question = Question.new(quiz_id: @quiz.id) %>
                     <%= render "questions/form" %>
                 </div>
+                 </div>
+                 </div>
+                <% @quiz.questions.each.with_index do |question, i| %>
+                <h4>
+                <%= link_to fa_icon('edit fw',text:  "#{i+1}. Frage: #{question.question_title}"), edit_quiz_question_path(@quiz, question), class:"btn btn-info mt-2"%>
+                </h4>
+                <% end %>
+                </div>
             </div>
         </div>
     </div>
 </div>
+

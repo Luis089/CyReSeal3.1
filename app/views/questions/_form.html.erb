@@ -2,8 +2,8 @@
   <div class="container mt-4">
     <%=form_for @question do |f|%> <%=f.hidden_field :quiz_id %>
     <p>
-      <%=f.label "Titel" %> <%=f.text_field :question_title, class:
-      'form-control', placeholder: 'Titel der Frage eingeben'%>
+      <%=f.label :question_title, "Kategorie, Titel" %> <%=f.text_field :question_title, class:
+      'form-control', placeholder: 'Titel/Kategorie der Frage eingeben'%>
     </p>
     <p>
       <%=f.label "Frage" %><br /><%=f.text_field :question_text, class:

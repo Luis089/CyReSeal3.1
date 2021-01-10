@@ -2,8 +2,12 @@ Rails.application.routes.draw do
    devise_scope :user do
     post "users/sign_up", to: "devise/registrations#create"
   end
+
+  resources :quizzes do
+    resources :questions
+  end
+
   resources :attempts
-  resources :quizzes
   resources :questions 
   resources :answers 
   resources :results 
@@ -13,6 +17,7 @@ Rails.application.routes.draw do
   get "quizzes", to: "quizzes#index"
   get "users", to: "users#index"
   get '/users/:id', to: 'users#show', as: 'user'
+  get 'users/edit/', to: 'registrations#edit'
   delete "/users/:id", to:  'users#destroy', as: 'delete_user'
   delete "/quizzes/:id", to:  'quizzes#destroy', as: 'destroy_quiz'
   delete "/questions/:id", to:  'questions#destroy', as: 'destroy_question'

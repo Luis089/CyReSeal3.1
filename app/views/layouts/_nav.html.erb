@@ -22,7 +22,7 @@
                 <span>Neuer Fragebogen</span>
                 <% end %>
                 <% else %>
-            <li class="nav-item <%= 'active' if current_page?(new_quiz_path)%>">
+            <li class="nav-item <%= 'active' if current_page?(new_quiz_path)%>", title="Benötigt Adminrechte">
                 <%= link_to "#", class:"nav-link disabled" do %>
                 <%= fa_icon('user-lock fw') %>
                 <span>Neuer Fragebogen</span>

@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+  before_action :is_admin?, only: [:new, :edit, :destroy]
    
   def index
     @quizzes = Quiz.all
@@ -6,8 +7,8 @@ class QuizzesController < ApplicationController
   
   
   def new
-    @questions = Question.all
     @quiz = Quiz.new
+    @questions = @quiz.questions.build
   end
   
   
@@ -69,16 +70,24 @@ class QuizzesController < ApplicationController
   def quiz_params
     params.require(:quiz).permit(:title , :description ,:question_ids)
   end 
+
   private
 
   def is_admin?
       # check if user is a admin
+      if current_user.has_role? :Admin
+      else
+        flash[:alert] = "Dieser Bereich benötigt Adminrechte."
       redirect_to root_path unless current_user.has_role? :Admin
+      end
   end
 
   def is_auditor?
-      # check if user is a admin
-      # if not admin then redirect to where ever you want 
+    if current_user.has_role? :Admin
+    else
+      # check if user is a auditor
+      flash[:alert] = "Dieser Bereich benötigt eine höhere Berechtigung."
       redirect_to root_path  unless current_user.has_role? :Auditor
+    end
   end
 end

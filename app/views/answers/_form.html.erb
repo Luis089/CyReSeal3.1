@@ -1,6 +1,6 @@
 <%=form_for @answer do |f| %> <%=f.hidden_field :question_id %>
 <p>
-  <%=f.label "Antwort" %><%=f.text_field :answer_text, class:
+  <%=f.label "Antworttext" %><%=f.text_field :answer_text, class:
   'form-control', placeholder: 'Antwort eingeben'%>
 </p>
 <p><%=f.label "Punkte" %><br><%=f.number_field :points, in: 0..5, step: 0.5, class: 'special_input', placeholder: '0'%></p>
