@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
- 
+
   def index
   end
    
@@ -13,6 +13,7 @@ class AnswersController < ApplicationController
        redirect_to request.referrer
     end
   end 
+
    
   def update
      answer = Answer.find(params[:id])

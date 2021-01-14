@@ -17,7 +17,8 @@
       </ul>
    </div>
    <%@weighted_result_sum = 0%>
-   <%@weighted_result_count = 0%>
+   <%@questions_count = 0%>
+   <%@max_points_sum = 0  %>
    <%Result.quiz_results(@attempt, @quiz).each.with_index do |result, i| %>
    <div class="shadow-sm p-2 mb-1 bg-white rounded">
       <h4><%="#{i+1}. "%>Frage: <%=result.question.question_text %></h4>
@@ -35,13 +36,14 @@
       <h5>Gewichtung: <%= result.answer.point_weighting%></h5>
       <h5>Gewichtete Punkte: <span><%=@weighted_result = result.answer.points*result.answer.point_weighting%></span></h5>
       <%end%>
-      <%@weighted_result_count = @weighted_result_count + result.answer.point_weighting %>
       <%@weighted_result_sum = @weighted_result_sum + @weighted_result  %>
-      <%@weighted_result_sum_divided_by_i = @weighted_result_sum / @weighted_result_count %>
+      <%@questions_count = i+1  %>
+      <%@max_points_sum = @max_points_sum + result.question.max_points%>
    </div>
    <%end%>
-   <h5 class="ml-2">Gewichtungen insgesamt: <%= @weighted_result_count%></h5>
+   <h5 class="ml-2">Mögliche Maximalpunkte, ungewichtet: <%=@max_points_sum %></h5>
    <h5 class="ml-2">Gesamtpunktzahl, ungewichtet: <%= Result.quiz_score(@attempt, @quiz).to_f%></h5>
    <h5 class="ml-2">Gesamtpunktzahl, gewichtet: <%=@weighted_result_sum_final= @weighted_result_sum%></h5>
-   <h5 class="ml-2">Durschnittliche Punktzahl, gewichtet: <%=number_to_currency(@weighted_result_sum_divided_by_i, unit:"")%></h5>
+   <h5 class="ml-2">Durschnittliche Punktzahl, ungewichtet: <%=@average_points= Result.quiz_score(@attempt, @quiz).to_f/@questions_count%></h5>
+   <h5 class="ml-2">Durschnittliche Punktzahl, gewichtet: <%=@average_weighted_points= @weighted_result_sum_final/@questions_count%></h5>
 </div>
